@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_094627) do
+ActiveRecord::Schema.define(version: 2018_11_26_103918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "event_start"
+    t.datetime "event_end"
+    t.string "location"
+    t.bigint "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_events_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "city"
+    t.date "start_day"
+    t.date "end_day"
+    t.integer "number_of_people"
+    t.string "budget"
+    t.string "category"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +51,19 @@ ActiveRecord::Schema.define(version: 2018_11_26_094627) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venues", force: :cascade do |t|
+    t.string "name"
+    t.time "open_start"
+    t.time "open_end"
+    t.integer "days"
+    t.string "location"
+    t.bigint "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_venues_on_trip_id"
+  end
+
+  add_foreign_key "events", "trips"
+  add_foreign_key "trips", "users"
+  add_foreign_key "venues", "trips"
 end
