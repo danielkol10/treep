@@ -39,4 +39,5 @@ class TripsController < ApplicationController
   def delete
     # we can add this button in the "My trips" Dashboard.
   end
+
 end
