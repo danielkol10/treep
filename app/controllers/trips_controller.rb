@@ -6,12 +6,12 @@ class TripsController < ApplicationController
 
   def new
     # this should be the first page after Home page
-    # where the user Chooses the tags/preferences
+    # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
   end
 
   def create
-    # POST request most work with the API..
+    # POST request must work with the API..
     # ALL THE IMPORTANT WORK
     # how to translate users answers on preferences to API tags...
   end
