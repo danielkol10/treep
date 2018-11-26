@@ -160,7 +160,7 @@ venue = Venue.create!(
   name: Faker::Company.name,
   open_start: "0900",
   open_end: "1700",
-  days: [1, 2, 3, 4, 5],
+  days: "[1, 2, 3, 4, 5]",
   location:  "12 Covent Gardens, London",
   trip_id: trips[0].id
   )
