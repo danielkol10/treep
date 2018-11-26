@@ -1,6 +1,6 @@
 .banner {
   color: white;
-  text-align: center;
+  text-align: left;
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-color: white;
@@ -27,7 +27,7 @@
 .banner-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -35,7 +35,6 @@
   display: block;
   margin-top: 75px;
   margin-left: -30px;
-  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 12px;
   color: #fff;
   text-transform: uppercase;
@@ -43,4 +42,47 @@
   opacity: .25;
   animation: pulse 2s linear alternate infinite;
 }
+.home-button {
+  background-color: $green;
+  border-radius: 10px;
+  padding: 7px;
+}
 
+.home-button:hover {
+  color: white;
+  background-color: $dark-green;
+}
+
+.city-input  {
+  padding: 25px;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+.city-input::placeholder {
+  color: $dark-green;
+  font-size: 22px;
+}
+
+.date-input  {
+  padding: 25px;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+.date-input::placeholder {
+  color: $dark-green;
+  font-size: 22px;
+}
+
+.people-input  {
+  padding: 25px;
+  opacity: 0.7;
+  border-radius: 10px;
+}
+.people-input::placeholder {
+  color: $dark-green;
+  font-size: 22px;
+}
+
+.first-title {
+
+}

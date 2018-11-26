@@ -1,16 +1,22 @@
   <div class="banner" style="background-image:
   linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'dawn-dusk.jpg' %>);">
   <div class="banner-content">
-    <h1>Treep</h1>
-    <p>Experience The World</p>
-    <p>One Trip At a Time</p>
+    <div class="first-title">
+      <p>
+      </p>
+      <h2>Experience
+        <span id="banner-typed-text"></span>
+      </h2>
+      <h4>One Trip At a Time</h4>
+    </div>
     <div class="form">
       <div class="simple-form form-inline">
         <div class="form-box">
           <%= simple_form_for :search, url: new_trip_path, method: :get do |f| %>
-          <%= f.input :city_query, label: false, placeholder: "City" %>
-          <%= f.input :date_query, label: false, placeholder: "Date" %>
-          <%= f.submit 'Explore' %>
+          <%= f.input :city_query, label: false, placeholder: "City", input_html:{class: "city-input"} %>
+          <%= f.input :date_query, label: false, placeholder: "Date", input_html:{class: "date-input"} %>
+          <%= f.input :people_query, label: false, placeholder: "No. of People", input_html:{class: "people-input"} %>
+          <%= f.submit 'Explore', class: "btn home-button" %>
           <% end %>
         </div>
       </div>
