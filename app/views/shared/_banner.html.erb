@@ -14,7 +14,9 @@
         <div class="form-box">
           <%= simple_form_for :search, url: new_trip_path, method: :get do |f| %>
           <%= f.input :city_query, label: false, placeholder: "City", input_html:{class: "city-input"} %>
-          <%= f.input :date_query, label: false, placeholder: "Date", input_html:{class: "date-input"} %>
+          <%= f.input :starts_at, as: :string, required: true, input_html: {class: "datepicker date-input"} %>
+          <%= f.input :ends_at, as: :string, required: true, input_html: {class: "datepicker date-input"} %>
+          <%#= f.input :date_query, label: false, placeholder: "Date", input_html:{class: "date-input"} %>
           <%= f.input :people_query, label: false, placeholder: "No. of People", input_html:{class: "people-input"} %>
           <%= f.submit 'Explore', class: "btn home-button" %>
           <% end %>
