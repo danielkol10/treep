@@ -9,12 +9,13 @@ class TripsController < ApplicationController
     # this should be the first page after Home page
     # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
-    @trip = Trip.new(
-      start_day: params["search"]["starts_at"],
-      end_day: params["search"]["ends_at"],
-      city: params["search"]["city_query"],
-      number_of_people: params["search"]["people_query"]
-    )
+    @trip = Trip.new
+
+    @start_day = params["search"]["starts_at"]
+    @end_day = params["search"]["ends_at"]
+
+    @city = params["search"]["city_query"]
+    @number_of_people = params["search"]["people_query"]
   end
 
   def create
@@ -24,7 +25,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
-    redirect_to new_trip_path
+    redirect_to root_path # redirect to trip show once we have it
   end
 
   def show
@@ -56,7 +57,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:start_day, :end_day, :number_of_people, :city)
+    params.require(:trip).permit(:start_day, :end_day, :number_of_people, :city, :budget)
   end
 
   def set_trip
