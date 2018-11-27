@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :authenticate_user!, except: :new
   def index
     # should be empty
     # or just use it as Dashboard, for "My Trips"
