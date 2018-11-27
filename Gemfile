@@ -18,6 +18,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
 gem 'date'
+gem "geocoder"
+
 
 gem 'acts-as-taggable-on', '~> 6.0'
 
