@@ -14,15 +14,20 @@ class TripsController < ApplicationController
     # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
     @trip = Trip.new
-
     @start_day = params["search"]["starts_at"]
     @end_day = params["search"]["ends_at"]
-
     @city = params["search"]["city_query"]
     @number_of_people = params["search"]["people_query"]
+
   end
 
   def create
+    @trip_categories = params["trip"]["category_ids"]
+    @categories_names = []
+    @trip_categories = @trip_categories.drop(1)
+    @trip_categories.each do |cat|
+      @categories_names << Category.find(cat)["name"]
+    end
     # POST request must work with the API..
     # ALL THE IMPORTANT WORK
     # how to translate users answers on preferences to API tags...
@@ -58,6 +63,7 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
+
   private
 
   def trip_params
@@ -67,4 +73,5 @@ class TripsController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:id])
   end
+
 end

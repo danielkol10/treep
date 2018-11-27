@@ -1,10 +1,19 @@
-<h1>Let us get to know you.. please choose your preferences</h1>
-<%= simple_form_for(@trip) do |f| %>
-<%= f.input :budget  %>
-<%= f.input_field :start_day, value: @start_day, as: :hidden %>
-<%= f.input_field :end_day, value: @end_day, as: :hidden %>
-<%= f.input_field :city, value: @city, as: :hidden %>
-<%= f.input_field :number_of_people, value: @number_of_people, as: :hidden %>
-<%= f.submit %>
-<% end %>
+<!-- <%=# simple_form_for(@trip) do |f| %>
+<%=# f.input :budget  %>
+<%=# f.input_field :start_day, value: @start_day, as: :hidden %>
+<%=# f.input_field :end_day, value: @end_day, as: :hidden %>
+<%=# f.input_field :city, value: @city, as: :hidden %>
+<%=# f.input_field :number_of_people, value: @number_of_people, as: :hidden %>
+<%=# f.submit %>
+<%# end %> -->
+
+<div class="contianer">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-trip">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
 

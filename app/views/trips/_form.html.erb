@@ -1,0 +1,49 @@
+<%= simple_form_for (@trip) do |f| %>
+ <div class="form-group">
+  <input type="hidden" name="trip[category_ids][]" value="">
+
+  <h3>Which food do you prefer?</h3>
+  <div class="category-choices">
+    <% Category.all[0..5].each do |category| %>
+      <input type="checkbox" class="hidden" value="<%= category.id %>" name="trip[category_ids][]" id="trip_category_ids_<%= category.id %>">
+      <label class="category-choice" for="trip_category_ids_<%= category.id %>">
+        <%= category.name %>
+      </label>
+    <% end %>
+  </div>
+
+
+   <h3>Where do you like to go at night?</h3>
+  <div class="category-choices">
+    <% Category.all[6..11].each do |category| %>
+      <input type="checkbox" class="hidden" value="<%= category.id %>" name="trip[category_ids][]" id="trip_category_ids_<%= category.id %>">
+      <label class="category-choice" for="trip_category_ids_<%= category.id %>">
+        <%= category.name %>
+      </label>
+    <% end %>
+  </div>
+
+   <h3>What's the main theme of your trip?</h3>
+  <div class="category-choices">
+    <% Category.all[12..15].each do |category| %>
+      <input type="checkbox" class="hidden" value="<%= category.id %>" name="trip[category_ids][]" id="trip_category_ids_<%= category.id %>">
+      <label class="category-choice" for="trip_category_ids_<%= category.id %>">
+        <%= category.name %>
+      </label>
+    <% end %>
+  </div>
+
+  <h3>Which kind of museums do you like?</h3>
+  <div class="category-choices">
+    <% Category.all[16..19].each do |category| %>
+      <input type="checkbox" class="hidden" value="<%= category.id %>" name="trip[category_ids][]" id="trip_category_ids_<%= category.id %>">
+      <label class="category-choice" for="trip_category_ids_<%= category.id %>">
+        <%= category.name %>
+      </label>
+    <% end %>
+  </div>
+
+  <%= f.submit "Generate Trip", class: "btn home-button" %>
+<% end %>
+</div>
+
