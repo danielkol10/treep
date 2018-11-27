@@ -16,6 +16,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'faker'
+gem 'date'
 
 gem 'acts-as-taggable-on', '~> 6.0'
 
