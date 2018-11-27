@@ -8,9 +8,17 @@ class TripsController < ApplicationController
     # this should be the first page after Home page
     # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
+    @trip = Trip.new
   end
 
   def create
+    @trip = Trip.new
+    @trip_categories = params["trip"]["category_ids"]
+    @categories_names = []
+    @trip_categories = @trip_categories.drop(1)
+    @trip_categories.each do |cat|
+      @categories_names << Category.find(cat)["name"]
+    end
     # POST request must work with the API..
     # ALL THE IMPORTANT WORK
     # how to translate users answers on preferences to API tags...
@@ -38,6 +46,10 @@ class TripsController < ApplicationController
 
   def delete
     # we can add this button in the "My trips" Dashboard.
+  end
+
+  def trip_params
+  params.require(:trip).permit(:user_id, :city, :start_day, :end_day, :number_of_people)
   end
 
 end
