@@ -32,9 +32,11 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
+    # @venue = Venue.new # (API CALL)
+    # @event = Event.new # (API CALL)
+    # coord_query = params[:city]
+    # @results = api_call(coord_query)
     redirect_to root_path # redirect to trip show once we have it
-    @venue = Venue.new # (API CALL)
-    @event = Event.new # (API CALL)
   end
 
   def show
@@ -73,5 +75,13 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def api_call(coord_query)
+    @foursquare = FourSquare.new(
+      client_id: ENV['FOURSQUARE_ID'],
+      client_secret: ENV['FOURSQUARE_SECRET']
+    )
+   @foursquare.search_venues(coord_query)
   end
 end
