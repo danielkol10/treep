@@ -14,14 +14,16 @@ class TripsController < ApplicationController
     # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
     @trip = Trip.new
+    @venue = Venue.new
+    @event = Event.new
     @start_day = params["search"]["starts_at"]
     @end_day = params["search"]["ends_at"]
     @city = params["search"]["city_query"]
     @number_of_people = params["search"]["people_query"]
-
   end
 
   def create
+    raise
     @trip_categories = params["trip"]["category_ids"]
     @categories_names = []
     @trip_categories = @trip_categories.drop(1)
