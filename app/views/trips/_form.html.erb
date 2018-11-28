@@ -1,4 +1,11 @@
 <%= simple_form_for (@trip) do |f| %>
+
+
+<%= f.input_field :start_day, value: @start_day, as: :hidden %>
+<%= f.input_field :end_day, value: @end_day, as: :hidden %>
+<%= f.input_field :city, value: @city, as: :hidden %>
+<%= f.input_field :number_of_people, value: @number_of_people, as: :hidden %>
+
  <div class="form-group">
   <input type="hidden" name="trip[category_ids][]" value="">
 
@@ -42,6 +49,17 @@
       </label>
     <% end %>
   </div>
+
+    <h3>How's Your Budget Doing ah?</h3>
+    <div class="category-choices">
+    <% Category.all[20..22].each do |category| %>
+      <input type="checkbox" class="hidden" value="<%= category.id %>" name="trip[category_ids][]" id="trip_category_ids_<%= category.id %>">
+      <label class="category-choice" for="trip_category_ids_<%= category.id %>">
+        <%= category.name %>
+      </label>
+    <% end %>
+  </div>
+
 
   <%= f.submit "Generate Trip", class: "btn home-button" %>
 <% end %>
