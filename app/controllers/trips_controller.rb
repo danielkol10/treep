@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-
   before_action :authenticate_user!, except: :new
 
   before_action :set_trip, only: [:edit, :destroy, :update]
@@ -14,8 +13,6 @@ class TripsController < ApplicationController
     # where the user chooses the tags/preferences
     # then he clicks "Create/Generate Trip"
     @trip = Trip.new
-    @venue = Venue.new
-    @event = Event.new
     @start_day = params["search"]["starts_at"]
     @end_day = params["search"]["ends_at"]
     @city = params["search"]["city_query"]
@@ -36,6 +33,8 @@ class TripsController < ApplicationController
     @trip.user = current_user
     @trip.save
     redirect_to root_path # redirect to trip show once we have it
+    @venue = Venue.new # (API CALL)
+    @event = Event.new # (API CALL)
   end
 
   def show
@@ -43,6 +42,8 @@ class TripsController < ApplicationController
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
     # connected to Index / Dashboard / "My trips"
+
+
   end
 
   def edit
@@ -64,7 +65,6 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
-
   private
 
   def trip_params
@@ -74,5 +74,4 @@ class TripsController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:id])
   end
-
 end
