@@ -10,5 +10,16 @@ choices.forEach((choice) => {
 
 
 // export { activeChoice };
+const budgets = document.querySelectorAll('.budget-choice')
 
+const toggleBudgetActive = (event) => {
+  const budgets = document.querySelectorAll('.budget-choice')
+  budgets.forEach((budget) => {
+    budget.classList.remove("active");
+  });
+  event.currentTarget.classList.toggle("active");
+};
 
+budgets.forEach((budget) => {
+  budget.addEventListener("click", toggleBudgetActive);
+});
