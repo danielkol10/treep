@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'faker'
+gem 'foursquare2'
 gem 'date'
 gem "geocoder"
 

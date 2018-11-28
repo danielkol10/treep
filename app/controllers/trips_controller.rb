@@ -32,10 +32,11 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
+    coord = @trip.get_coord
     # @venue = Venue.new # (API CALL)
     # @event = Event.new # (API CALL)
     # coord_query = params[:city]
-    # @results = api_call(coord_query)
+    @results = api_call(coord)
     redirect_to root_path # redirect to trip show once we have it
   end
 
@@ -44,8 +45,6 @@ class TripsController < ApplicationController
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
     # connected to Index / Dashboard / "My trips"
-
-
   end
 
   def edit
@@ -78,10 +77,11 @@ class TripsController < ApplicationController
   end
 
   def api_call(coord_query)
-    @foursquare = FourSquare.new(
+    @foursquare = Foursquare2::Client.new(
       client_id: ENV['FOURSQUARE_ID'],
       client_secret: ENV['FOURSQUARE_SECRET']
     )
-   @foursquare.search_venues(coord_query)
+   @results = @foursquare.search_venues(ll: coord_query, v: '20180323')
+   raise
   end
 end
