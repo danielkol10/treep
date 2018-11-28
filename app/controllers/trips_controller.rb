@@ -22,7 +22,6 @@ class TripsController < ApplicationController
   end
 
   def create
-    raise
     @trip_categories = params["trip"]["category_ids"]
     @categories_names = []
     @trip_categories = @trip_categories.drop(1)
@@ -74,5 +73,4 @@ class TripsController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:id])
   end
-
 end
