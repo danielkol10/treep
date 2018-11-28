@@ -17,7 +17,8 @@ Category.destroy_all
 categories = %w(Italian Japanese Chinese Mediterranean Burger Local
                 Nightclubs Bars Classical Calm karaoke music\ venues
                 hidden\ gems famous\ monuments adrenaline family
-                Art\ Musuem History\ musuem Science\ musuem street\ art)
+                Art\ Musuem History\ musuem Science\ musuem street\ art
+                Low\ Budget Regular Luxury )
 
 categories.each do |category|
   Category.create!(name: category)
