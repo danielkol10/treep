@@ -31,6 +31,10 @@
   justify-content: center;
 }
 
+.form {
+  margin-top: 18px;
+}
+
 .text {
   display: block;
   margin-top: 75px;
@@ -47,6 +51,7 @@
   border-radius: 10px;
   padding: 12px;
   width: 160px;
+  font-size: 20px;
 }
 
 .home-button:hover {
@@ -61,18 +66,19 @@
 }
 .city-input::placeholder {
   color: $dark-green;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .date-input  {
   padding: 25px;
   opacity: 0.7;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 20px;
+  opacity: 0.7;
 }
 .date-input::placeholder {
   color: $dark-green;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .people-input  {
@@ -86,13 +92,16 @@
 }
 
 #people-input {
-  width: 116px;
+  width: 152px;
+  opacity: 0.7;
 }
 
 #start-date {
-  width: 115px;
+  width: 152px;
+  opacity: 0.7;
 }
 
 #end-date {
-  width: 115px;
+  width: 152px;
+  opacity: 0.7;
 }
