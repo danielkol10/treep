@@ -1,6 +1,6 @@
 <div class="login-wrap">
   <div class="login-html">
-    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log In</label>
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
     <div class="login-form">
       <div class="sign-in-htm">
@@ -16,10 +16,10 @@
           </div>
           <div class="group">
             <input id="check" type="checkbox" class="check" checked>
-            <label for="check"><span class="icon"></span> Keep me Signed in</label>
+            <label for="check"><span class="icon"></span> Remember me</label>
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign In">
+            <input type="submit" class="button" value="Log In">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -31,8 +31,16 @@
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
           <div class="group">
+            <label for="pass" class="label">First Name</label>
+            <%= f.input :first_name, required: true, autofocus: true, label: false, input_html: { id: "sign_up_user_first_name"} %>
+          </div>
+          <div class="group">
+            <label for="pass" class="label">Last Name</label>
+            <%= f.input :last_name, required: true, label: false, input_html: { id: "sign_up_user_last_name"} %>
+          </div>
+          <div class="group">
             <label for="pass" class="label">Email Address</label>
-            <%= f.input :email, required: true, autofocus: true, label: false, input_html: { id: "sign_up_user_email"} %>
+            <%= f.input :email, required: true, label: false, input_html: { id: "sign_up_user_email"} %>
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
@@ -47,7 +55,7 @@
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
-            <label for="tab-1">Already Member?</a>
+            <label for="tab-1">Already have an account?</a>
           </div>
         <% end %>
       </div>
