@@ -34,7 +34,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
-    redirect_to root_path # redirect to trip show once we have it
+    redirect_to trip_path(@trip) # redirect to trip show once we have it
   end
 
   def show
