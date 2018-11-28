@@ -18,7 +18,6 @@ class TripsController < ApplicationController
     @end_day = params["search"]["ends_at"]
     @city = params["search"]["city_query"]
     @number_of_people = params["search"]["people_query"]
-
   end
 
   def create
@@ -38,6 +37,14 @@ class TripsController < ApplicationController
   end
 
   def show
+    @trips = Trip.where.not(latitude: nil, longitude: nil) #This will later be events and venues
+
+    @markers = @trips.map do |trip|
+      {
+        lng: trip.longitude,
+        lat: trip.latitude
+      }
+    end
     # we can use it when you click on one of the trips in "My trips" list
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
