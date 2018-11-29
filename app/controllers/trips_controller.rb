@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-
   before_action :authenticate_user!, except: :new
 
   before_action :set_trip, only: [:edit, :destroy, :update, :show]
@@ -18,10 +17,14 @@ class TripsController < ApplicationController
     @end_day = params["search"]["ends_at"]
     @city = params["search"]["city_query"]
     @number_of_people = params["search"]["people_query"]
-
   end
 
   def create
+    
+    # POST request must work with the API..
+    # ALL THE IMPORTANT WORK
+    # how to translate users answers on preferences to API tags...
+
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
@@ -33,14 +36,21 @@ class TripsController < ApplicationController
       TripCategory.create(trip_id: @trip.id, category_id: cat)
     end
 
-
-    # POST request must work with the API..
-    # ALL THE IMPORTANT WORK
-    # how to translate users answers on preferences to API tags...
-    redirect_to trip_path(@trip) # redirect to trip show once we have it
+    coord = @trip.get_coord
+    # @venue = Venue.new # (API CALL)
+    # @event = Event.new # (API CALL)
+    # coord_query = params[:city]
+    @results = api_call(coord)
+    
+    redirect_to trip_path(@trip)
   end
 
   def show
+     # we can use it when you click on one of the trips in "My trips" list
+    # to see the past/current trips details
+    # which is the same as the edit page but without option to edit
+    # connected to Index / Dashboard / "My trips"
+    
     @chosen_categories = @trip.chosen_categories
     @venues_serials = []
 
@@ -51,10 +61,6 @@ class TripsController < ApplicationController
     end
     # @venues_serials.join(',')
 
-    # we can use it when you click on one of the trips in "My trips" list
-    # to see the past/current trips details
-    # which is the same as the edit page but without option to edit
-    # connected to Index / Dashboard / "My trips"
   end
 
   def edit
@@ -76,7 +82,6 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
-
   private
 
   def trip_params
@@ -87,4 +92,11 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def api_call(coord_query)
+    @foursquare = Foursquare2::Client.new(
+      client_id: ENV['FOURSQUARE_ID'],
+      client_secret: ENV['FOURSQUARE_SECRET']
+    )
+   @results = @foursquare.search_venues(ll: coord_query, v: '20180323')
+  end
 end
