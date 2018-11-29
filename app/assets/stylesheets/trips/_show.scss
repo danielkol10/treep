@@ -205,5 +205,7 @@ a {
   overflow: hidden;
 }
 #map {
-  height: 700px;
+  top: 0;
+  height: 100vh;
+  position: sticky !important;
 }
