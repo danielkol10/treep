@@ -7,8 +7,9 @@ class Trip < ApplicationRecord
   has_many :venues
 
   acts_as_taggable_on :tags
+
   has_many :trip_categories
-  has_many :categories, through: :trip_categories
+  has_many :chosen_categories, through: :trip_categories, source: :category
 
   # CATEGORIES = {
   #   food: ["Italian", "Local", "Asian", "Mediterranean", "burgers", "sushi", "seafood"],
@@ -17,5 +18,7 @@ class Trip < ApplicationRecord
   #   activites: ["hidden gems", "famous monuments", "adrenaline", "family"],
   #   musuems: ["Art Musuem", "History musuem", "Science musuem", "street art"]
   # }
-
+  def get_coord
+    "#{self.latitude},#{self.longitude}"
+  end
 end
