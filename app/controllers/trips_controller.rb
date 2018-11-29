@@ -43,25 +43,33 @@ class TripsController < ApplicationController
     @results = api_call(coord)
     
     redirect_to trip_path(@trip)
-  end
+   end
 
   def show
-     # we can use it when you click on one of the trips in "My trips" list
+    # we can use it when you click on one of the trips in "My trips" list
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
     # connected to Index / Dashboard / "My trips"
-    
+   
     @chosen_categories = @trip.chosen_categories
     @venues_serials = []
-
     @chosen_categories.each do |category|
       category.serials.each do |serial|
         @venues_serials << serial
       end
     end
     # @venues_serials.join(',')
+    
+    @trips = Trip.where.not(latitude: nil, longitude: nil) #This will later be events and venues
 
+    @markers = @trips.map do |trip|
+      {
+        lng: trip.longitude,
+        lat: trip.latitude
+      }
+    end
   end
+
 
   def edit
     # Baraa - I think this should be the page where the user can
