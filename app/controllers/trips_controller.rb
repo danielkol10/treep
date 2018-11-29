@@ -82,6 +82,5 @@ class TripsController < ApplicationController
       client_secret: ENV['FOURSQUARE_SECRET']
     )
    @results = @foursquare.search_venues(ll: coord_query, v: '20180323')
-   raise
   end
 end
