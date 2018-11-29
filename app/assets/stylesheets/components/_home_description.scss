@@ -1,0 +1,130 @@
+/*--------------------------------
+GENERAL
+---------------------------------*/
+
+.sect {
+    padding: 130px 0;
+}
+
+/*--------------------------------
+TYPE OF COFFEE
+---------------------------------*/
+.sect--type{
+  background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543497756/erik-odiin-539947-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fff;
+}
+
+.sect__title {
+    margin-top: 0;
+    text-transform: uppercase;
+    line-height: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.sect__subtitle {
+    margin-bottom: 0;
+}
+
+.coffee {
+    padding: 0 25px;
+}
+
+.coffee__name {
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.coffee__img {
+    width: 90%;
+}
+
+.coffee__descr {
+    margin: 0;
+    line-height: 23px;
+}
+
+/*--------------------------------
+2 HALF SECTION
+---------------------------------*/
+.half-sect__second {
+    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543497758/back-view-backlit-city-847483.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color:#fff;
+}
+
+.half {
+    width: 50%;
+    display: table-cell;
+    background-color:#fff;
+}
+
+.half-sect__first {
+    padding: 150px;
+   background-color:#fff;
+}
+
+.description__p {
+    margin-bottom: 40px;
+}
+
+.description__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/*--------------------------------
+GREAT COFFEE
+---------------------------------*/
+.sect--great {
+    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543500278/sutirta-budiman-575267-unsplash.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color:#fff;
+
+}
+
+/*--------------------------------
+THE BEST COFFEE SHOP
+---------------------------------*/
+.sect--best {
+    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543497758/adventure-backpack-daytime-887828.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:#000;
+}
+
+.best__title {
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #daa37f;
+}
+
+.best__img {
+    width: 50px;
+}
+
+.best--margin {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.best--bottom {
+    margin-bottom: 40px;
+}
