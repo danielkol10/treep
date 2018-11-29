@@ -1,5 +1,4 @@
 class TripsController < ApplicationController
-
   before_action :authenticate_user!, except: :new
 
   before_action :set_trip, only: [:edit, :destroy, :update]
@@ -18,7 +17,6 @@ class TripsController < ApplicationController
     @end_day = params["search"]["ends_at"]
     @city = params["search"]["city_query"]
     @number_of_people = params["search"]["people_query"]
-
   end
 
   def create
@@ -34,6 +32,11 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
+    coord = @trip.get_coord
+    # @venue = Venue.new # (API CALL)
+    # @event = Event.new # (API CALL)
+    # coord_query = params[:city]
+    @results = api_call(coord)
     redirect_to root_path # redirect to trip show once we have it
   end
 
@@ -63,7 +66,6 @@ class TripsController < ApplicationController
     @trip.destroy
   end
 
-
   private
 
   def trip_params
@@ -72,5 +74,13 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
+  end
+
+  def api_call(coord_query)
+    @foursquare = Foursquare2::Client.new(
+      client_id: ENV['FOURSQUARE_ID'],
+      client_secret: ENV['FOURSQUARE_SECRET']
+    )
+   @results = @foursquare.search_venues(ll: coord_query, v: '20180323')
   end
 end
