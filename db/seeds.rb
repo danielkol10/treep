@@ -43,10 +43,12 @@ categories = {
   Luxury: ["luxury"]
 }
 
-
 categories.each do |category, serials|
     Category.create!(name: category.to_s.humanize, serials: serials )
 end
+
+eventbrite_categories.each do |category, serials|
+  Category.create!(name: category.to_s.humanize, serials: serials)
 
 10.times do
   user = User.new(

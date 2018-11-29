@@ -1,3 +1,6 @@
+require 'json'
+require 'rest-client'
+
 class TripsController < ApplicationController
   before_action :authenticate_user!, except: :new
 
@@ -36,14 +39,18 @@ class TripsController < ApplicationController
     coord = @trip.get_coord
     # @venue = Venue.new # (API CALL)
     # @event = Event.new # (API CALL)
+    api_key = "GMK4ASR3TSVVHTKWUHLN"
     latitude = @trip.latitude
     longitude = @trip.longitude
-    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=#{EVENTBRITE_API_KEY}&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi
+    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=#{api_key}&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi"
+    eventbrite_response = RestClient.get(eventbrite_url)
+    JSON.parse(eventbrite_response)['response']['events']
+    raise
     # coord_query = params[:city]
     @results = api_call(coord)
 
     redirect_to trip_path(@trip)
-   end
+  end
 
   def show
     # we can use it when you click on one of the trips in "My trips" list
@@ -69,7 +76,6 @@ class TripsController < ApplicationController
       }
     end
   end
-
 
   def edit
     # Baraa - I think this should be the page where the user can
