@@ -25,13 +25,14 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
-
     @trip_categories = params["trip"]["category_ids"]
-    @categories_names = []
+    @trip_categories.pop
     @trip_categories = @trip_categories.drop(1)
+
     @trip_categories.each do |cat|
       TripCategory.create(trip_id: @trip.id, category_id: cat)
     end
+
 
     # POST request must work with the API..
     # ALL THE IMPORTANT WORK
@@ -41,6 +42,15 @@ class TripsController < ApplicationController
 
   def show
     @chosen_categories = @trip.chosen_categories
+    @venues_serials = []
+
+    @chosen_categories.each do |category|
+      category.serials.each do |serial|
+        @venues_serials << serial
+      end
+    end
+    # @venues_serials.join(',')
+
     # we can use it when you click on one of the trips in "My trips" list
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
