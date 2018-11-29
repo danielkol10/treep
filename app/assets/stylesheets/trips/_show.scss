@@ -1,17 +1,6 @@
 $primary-color: #FF6B6B;
 $primary-color-hover: scale-color($primary-color, $lightness: 32%);
 
-body {
-    color: #768390;
-    background: #FFF;
-    font-family: "Effra", Helvetica, sans-serif;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-}
-h1,h2,h3,h4,h5,h6 {
-    color: #3D4351;
-    margin-top: 0;
-}
 a {
     color: $primary-color;
     &:hover {
