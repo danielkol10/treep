@@ -210,3 +210,11 @@ a {
                 }
             }
         }
+.timeline {
+  height: 100vh;
+  overflow-y: scroll;
+  overflow: hidden;
+}
+#map {
+  height: 700px;
+}
