@@ -36,8 +36,9 @@ class TripsController < ApplicationController
     coord = @trip.get_coord
     # @venue = Venue.new # (API CALL)
     # @event = Event.new # (API CALL)
-    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?"
-    @eventbrite_results =
+    latitude = @trip.latitude
+    longitude = @trip.longitude
+    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=#{EVENTBRITE_API_KEY}&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi
     # coord_query = params[:city]
     @results = api_call(coord)
 

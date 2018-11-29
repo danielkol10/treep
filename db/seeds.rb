@@ -8,11 +8,10 @@
 
 Venue.destroy_all
 Event.destroy_all
-Trip.destroy_all
 User.destroy_all
+Category.destroy_all
 TripCategory.destroy_all
 Trip.destroy_all
-Category.destroy_all
 
 categories = {
   Italian: ["4bf58dd8d48988d110941735"],
