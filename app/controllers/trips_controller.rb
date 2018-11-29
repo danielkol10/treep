@@ -20,18 +20,15 @@ class TripsController < ApplicationController
   end
 
   def create
-    
     # POST request must work with the API..
     # ALL THE IMPORTANT WORK
     # how to translate users answers on preferences to API tags...
-
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
     @trip_categories = params["trip"]["category_ids"]
     @trip_categories.pop
     @trip_categories = @trip_categories.drop(1)
-
     @trip_categories.each do |cat|
       TripCategory.create(trip_id: @trip.id, category_id: cat)
     end
@@ -39,9 +36,11 @@ class TripsController < ApplicationController
     coord = @trip.get_coord
     # @venue = Venue.new # (API CALL)
     # @event = Event.new # (API CALL)
+    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?"
+    @eventbrite_results =
     # coord_query = params[:city]
     @results = api_call(coord)
-    
+
     redirect_to trip_path(@trip)
    end
 
@@ -50,7 +49,7 @@ class TripsController < ApplicationController
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
     # connected to Index / Dashboard / "My trips"
-   
+
     @chosen_categories = @trip.chosen_categories
     @venues_serials = []
     @chosen_categories.each do |category|
@@ -59,7 +58,7 @@ class TripsController < ApplicationController
       end
     end
     # @venues_serials.join(',')
-    
+
     @trips = Trip.where.not(latitude: nil, longitude: nil) #This will later be events and venues
 
     @markers = @trips.map do |trip|

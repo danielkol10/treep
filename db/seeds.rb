@@ -89,64 +89,71 @@ events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,7,9),
   event_end: DateTime.new(2019,2,7,12),
-  location: "77 Hamilton Terrace, London",
-  trip_id: trips[0].id
+  trip_id: trips[0].id,
+  latitude: "51.49",
+  longitude: "0.17"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,9,13),
   event_end: DateTime.new(2019,2,9,15),
-  location: "15 Hyde Park Square, London",
-  trip_id: trips[0].id
+  trip_id: trips[0].id,
+  latitude: "51.55",
+  longitude: "0.06"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,9,14),
   event_end: DateTime.new(2019,2,9,18),
-  location: "32 Oxford Street, London",
-  trip_id: trips[0].id
+  trip_id: trips[0].id,
+  latitude: "51.46",
+  longitude: "0.11"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,9,17),
   event_end: DateTime.new(2019,3,9,19),
-  location: "920 Sunnyslope Ave. Bronx, New York 10469",
-  trip_id: trips[1].id
+  trip_id: trips[1].id,
+  latitude: "40.77",
+  longitude: "73.95"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,9,18),
   event_end: DateTime.new(2019,3,9,20),
-  location: "254 Pheasant St. Corona, New York 11368",
-  trip_id: trips[1].id
+  trip_id: trips[1].id,
+  latitude: "40.77",
+  longitude: "73.95"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,12,9),
   event_end: DateTime.new(2019,3,12,13),
-  location: "7516 Boston Rd. Brooklyn, New York 11237",
-  trip_id: trips[1].id
+  trip_id: trips[1].id,
+  latitude: "40.72",
+  longitude: "73.99"
   )
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,15,14),
   event_end: DateTime.new(2019,2,15,18),
-  location: "757 Cleveland St. Levittown, New York 11756",
-  trip_id: trips[1].id
+  trip_id: trips[1].id,
+  latitude: "40.78",
+  longitude: "73.96"
   )
 
 events = Event.create(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,21,14),
-  event_end: DateTime.new(2019,3,21,19),
-  location: "399 Devonshire Drive. Rome, New York, 3440",
-  trip_id: trips[1].id
+  trip_id: trips[1].id,
+  latitude: "40.78",
+  longitude: "73.97"
   )
 
 venue = Venue.create!(
