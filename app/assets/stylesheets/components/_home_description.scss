@@ -7,7 +7,7 @@ GENERAL
 }
 
 /*--------------------------------
-TYPE OF COFFEE
+HOW IT WORKS
 ---------------------------------*/
 .sect--type{
   background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543497756/erik-odiin-539947-unsplash.jpg');
@@ -55,7 +55,7 @@ TYPE OF COFFEE
 2 HALF SECTION
 ---------------------------------*/
 .half-sect__second {
-    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543497758/back-view-backlit-city-847483.jpg');
+    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543497758/adventure-backpack-daytime-887828.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -91,19 +91,14 @@ GREAT COFFEE
     background-size: contain;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color:#fff;
-
+    background-color: black;
 }
 
 /*--------------------------------
 THE BEST COFFEE SHOP
 ---------------------------------*/
 .sect--best {
-    background-image: url('https://res.cloudinary.com/druzius/image/upload/v1543497758/adventure-backpack-daytime-887828.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color:#000;
+    background-color: black;
 }
 
 .best__title {
