@@ -20,7 +20,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    
+
     # POST request must work with the API..
     # ALL THE IMPORTANT WORK
     # how to translate users answers on preferences to API tags...
@@ -41,7 +41,7 @@ class TripsController < ApplicationController
     # @event = Event.new # (API CALL)
     # coord_query = params[:city]
     @results = api_call(coord)
-    
+
     redirect_to trip_path(@trip)
    end
 
@@ -50,7 +50,7 @@ class TripsController < ApplicationController
     # to see the past/current trips details
     # which is the same as the edit page but without option to edit
     # connected to Index / Dashboard / "My trips"
-   
+
     @chosen_categories = @trip.chosen_categories
     @venues_serials = []
     @chosen_categories.each do |category|
@@ -59,9 +59,8 @@ class TripsController < ApplicationController
       end
     end
     # @venues_serials.join(',')
-    
-    @trips = Trip.where.not(latitude: nil, longitude: nil) #This will later be events and venues
 
+    @trips = Trip.where.not(latitude: nil, longitude: nil) #This will later be events and venues
     @markers = @trips.map do |trip|
       {
         lng: trip.longitude,
