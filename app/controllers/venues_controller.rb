@@ -1,12 +1,17 @@
 class VenuesController < ApplicationController
 
   # First create the trip, then venues and events, perhaps on the same page, perhaps on 2 forms.
-  # def new
-  #   @venue = Venue.new
+
+
+  # def edit
+
   # end
 
-  # def create
-  #   @venue = venue.new
-  #   @venue.save
+  # def update
+
   # end
+
+  def destroy
+
+  end
 end

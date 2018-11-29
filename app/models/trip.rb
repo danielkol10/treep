@@ -17,5 +17,7 @@ class Trip < ApplicationRecord
   #   activites: ["hidden gems", "famous monuments", "adrenaline", "family"],
   #   musuems: ["Art Musuem", "History musuem", "Science musuem", "street art"]
   # }
-
+  def get_coord
+    "#{self.latitude},#{self.longitude}"
+  end
 end
