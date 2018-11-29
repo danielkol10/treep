@@ -12,7 +12,9 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-        <%= yield %>
+    <div class="page-wrapper">
+      <%= yield %>
+    </div>
 
     <%= render 'shared/modal' %>
     <%= javascript_include_tag 'application' %>
