@@ -29,25 +29,16 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
-    @trip_categories = params["trip"]["category_ids"]
-    @trip_categories.pop
-    @trip_categories = @trip_categories.drop(1)
-    @trip_categories.each do |cat|
-      TripCategory.create(trip_id: @trip.id, category_id: cat)
-    end
-
-    coord = @trip.get_coord
-    # @venue = Venue.new # (API CALL)
     # @event = Event.new # (API CALL)
-    api_key = "GMK4ASR3TSVVHTKWUHLN"
     latitude = @trip.latitude
     longitude = @trip.longitude
-    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=#{api_key}&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi"
+    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=GMK4ASR3TSVVHTKWUHLN&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi"
     eventbrite_response = RestClient.get(eventbrite_url)
-    JSON.parse(eventbrite_response)['response']['events']
+    json_event_response = JSON.parse(eventbrite_response)
     raise
+    events_trip = []
+
     # coord_query = params[:city]
-    @results = api_call(coord)
 
     redirect_to trip_path(@trip)
   end
