@@ -20,8 +20,9 @@ gem 'webpacker'
 gem 'faker'
 gem 'foursquare2'
 gem 'date'
-gem "geocoder"
-
+gem 'geocoder'
+gem 'faraday'
+gem 'faraday_middleware'
 
 gem 'acts-as-taggable-on', '~> 6.0'
 

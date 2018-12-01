@@ -242,6 +242,8 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  faraday
+  faraday_middleware
   font-awesome-sass (~> 5.0.9)
   foursquare2
   geocoder

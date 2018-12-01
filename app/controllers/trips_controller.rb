@@ -1,7 +1,5 @@
-require 'json'
-require 'rest-client'
-
 class TripsController < ApplicationController
+  include ApplicationHelper
   before_action :authenticate_user!, except: :new
 
   before_action :set_trip, only: [:edit, :destroy, :update, :show]
@@ -23,24 +21,28 @@ class TripsController < ApplicationController
   end
 
   def create
-    # POST request must work with the API..
-    # ALL THE IMPORTANT WORK
-    # how to translate users answers on preferences to API tags...
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     @trip.save
-    # @event = Event.new # (API CALL)
+
+    key = ENV['EVENTBRITE']
+    base_url = "https://www.eventbriteapi.com/v3/events/"
     latitude = @trip.latitude
     longitude = @trip.longitude
-    eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=GMK4ASR3TSVVHTKWUHLN&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi"
-    eventbrite_response = RestClient.get(eventbrite_url)
-    json_event_response = JSON.parse(eventbrite_response)
+
+    eventbrite_response = Faraday.new(url: base_url) do |f|
+      f.adapter :net_http
+      f.response :json
+    end
+
+    response = eventbrite_response.get("search/?", token: key, "location.latitude": latitude, "location.longitude": longitude, categories: "103")
     raise
     events_trip = []
-
-    # coord_query = params[:city]
+    parsed_response.each do |event|
+    end
 
     redirect_to trip_path(@trip)
+    #eventbrite_url = "https://www.eventbriteapi.com/v3/events/search/?token=#{key}&location.latitude=#{latitude}&location.longitude=#{longitude}&location.within=2mi"
   end
 
   def show
