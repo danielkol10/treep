@@ -3,6 +3,7 @@
   <div class="header">
     <div class="header text-center">
       <h1>Food type</h1>
+      <h4>Type in your food type and we'll give you recommendations</h4>
       <%= simple_form_for :search, url: trip_venues_path, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
       boolean: :inline_boolean
     } do |f| %>
@@ -10,7 +11,6 @@
         <%= f.input :price, as: :radio_buttons, collection: ["$", "$$", "$$$"] %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
       <% end %>
-      <h4>Type in your food type and we'll give you recommendations</h4>
     </div>
   </div>
   <div class="container">
