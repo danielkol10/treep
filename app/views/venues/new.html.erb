@@ -6,7 +6,7 @@
       <h4>Type in your food type and we'll give you recommendations</h4>
       <%= simple_form_for :search, url: new_trip_venue_path, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
       boolean: :inline_boolean
-    } do |f| %>
+    }, method: :get do |f| %>
         <%= f.input :food_type, wrapper_html: { class: "col-5" } %>
         <%= f.input :price, as: :radio_buttons, collection: ["$", "$$", "$$$"] %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
@@ -15,45 +15,22 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Restaurant</h2>
+      <% unless @venues.nil? %>
+        <% @venues.each do |venue| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+              <div class="card-category"><%= venue[:name] %></div>
+              <div class="card-description">
+                <h2><%= venue[:address] %></h2>
+              </div>
+            </div>
+            <div class="confirm-selection text-center">
+              <a href="#" class="btn btn-primary">select</a>
+              <a href="#" class="btn btn-danger">shuffle</a>
+            </div>
           </div>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
-          <a href="#" class="btn btn-danger">shuffle</a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Restaurant</h2>
-          </div>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
-          <a href="#" class="btn btn-danger">shuffle</a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Restaurant</h2>
-          </div>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
-          <a href="#" class="btn btn-danger">shuffle</a>
-        </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

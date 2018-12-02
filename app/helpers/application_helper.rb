@@ -28,11 +28,13 @@ module ApplicationHelper
       f.response :json
     end
 
-    response = foursquare_response.get("explore/?", client_id: ENV['FOURSQUARE_ID'], client_secret: ENV['FOURSQUARE_SECRET'], near: :city, query: query, price: price, section: section)
-    raise
-    events_trip = []
-    parsed_response.each do |event|
+    response = foursquare_response.get("explore/?", client_id: ENV['FOURSQUARE_ID'], client_secret: ENV['FOURSQUARE_SECRET'], near: near, query: query, price: price, section: section, v: 20181202)
+    body = response.body
+    venues = body["response"]["groups"].first["items"]
+    venues_details = []
+    venues.each do |venue|
+      venues_details << { name: venue["venue"]["name"], address: venue["venue"]["location"]["address"] }
     end
+    return venues_details
   end
-
 end
