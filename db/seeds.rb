@@ -1,19 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 FoursquareCategory.destroy_all
 Venue.destroy_all
 Event.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-fourquare_category = ["food", "drinks", "arts", "outdoors"]
-fourquare_category.each do |cat|
-  FoursquareCategory.create(name: cat)
+foursquare_category = {
+  "food" => "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
+  "drinks" => "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
+  "arts" => "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
+  "outdoors" => "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg"
+}
+
+foursquare_category.each do |cat, url|
+  FoursquareCategory.create(name: cat, img_url: url)
 end
 
 10.times do

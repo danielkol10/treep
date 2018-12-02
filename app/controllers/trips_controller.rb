@@ -16,6 +16,7 @@ class TripsController < ApplicationController
   end
 
   def show
+    @foursquare_categories = FoursquareCategory.all
   end
 
   def edit
