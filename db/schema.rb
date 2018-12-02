@@ -10,75 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_141303) do
+ActiveRecord::Schema.define(version: 2018_12_02_120042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
+  create_table "eventbrite_categories", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "serials", default: [], array: true
+    t.string "name_slug"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "event_start"
     t.datetime "event_end"
-    t.string "location"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "latitude"
+    t.string "longitude"
+    t.string "description"
     t.index ["trip_id"], name: "index_events_on_trip_id"
   end
 
-  create_table "taggings", id: :serial, force: :cascade do |t|
-    t.integer "tag_id"
-    t.string "taggable_type"
-    t.integer "taggable_id"
-    t.string "tagger_type"
-    t.integer "tagger_id"
-    t.string "context", limit: 128
-    t.datetime "created_at"
-    t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
-    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
-    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-  end
-
-  create_table "tags", id: :serial, force: :cascade do |t|
+  create_table "foursquare_categories", force: :cascade do |t|
     t.string "name"
-    t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
-  end
-
-  create_table "trip_categories", force: :cascade do |t|
-    t.bigint "trip_id"
-    t.bigint "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_trip_categories_on_category_id"
-    t.index ["trip_id"], name: "index_trip_categories_on_trip_id"
+    t.string "img_url"
   end
 
   create_table "trips", force: :cascade do |t|
     t.string "city"
     t.date "start_day"
     t.date "end_day"
-    t.integer "number_of_people"
-    t.string "budget"
-    t.string "category"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
+    t.string "latitude"
+    t.string "longitude"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -100,17 +68,15 @@ ActiveRecord::Schema.define(version: 2018_11_28_141303) do
     t.string "name"
     t.string "open_start"
     t.string "open_end"
-    t.integer "days"
     t.string "location"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["trip_id"], name: "index_venues_on_trip_id"
   end
 
   add_foreign_key "events", "trips"
-  add_foreign_key "trip_categories", "categories"
-  add_foreign_key "trip_categories", "trips"
   add_foreign_key "trips", "users"
   add_foreign_key "venues", "trips"
 end
