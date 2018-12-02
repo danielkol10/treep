@@ -16,11 +16,8 @@
 
 @import "trips/index";
 
-a {
+a, a:visited, a:focus {
     color: #fff;
     text-decoration: none;
 }
 
-.page-wrapper {
-  margin-top: -100px;
-}
