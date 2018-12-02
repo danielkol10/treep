@@ -1,63 +1,41 @@
+
 <div class="image-wrapper" style="background-image:
-  linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'beach-car.jpg' %>);">
-  <div class="container">
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'beach-car.jpg' %>);">
+<div class="container">
   <div class="header">
     <div class="header text-center">
-      <h1>Food</h1>
-      <div class="suggestion-form">
-        <h4>What food are you into?</h4>
-        <%= simple_form_for :search, url: trip_venues_path, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
+      <h1>Food type</h1>
+      <h4>Type in your food type and we'll give you recommendations</h4>
+      <%= simple_form_for :search, url: new_trip_venue_path, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
         boolean: :inline_boolean
-      } do |f| %>
-          <%= f.input :food_type, wrapper_html: { class: "col-5" } %>
-          <%= f.input :price, as: :radio_buttons, collection: ["$", "$$", "$$$"] %>
-          <%= f.submit "Submit", class: "btn home-button" %>
-        <% end %>
-      </div>
+      }, method: :get do |f| %>
+      <%= f.input :food_type, wrapper_html: { class: "col-5" } %>
+      <%= f.input :price, as: :radio_buttons, collection: ["$", "$$", "$$$"] %>
+      <%= f.submit "Submit", class: "btn home-button" %>
+      <% end %>
     </div>
   </div>
+
   <div class="venue-category-cards">
     <div class="row">
+      <% unless @venues.nil? %>
+      <% @venues.each do |venue| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
+          <div class="card-category"><%= venue[:name] %></div>
           <div class="card-description">
-            <h2>Restaurant</h2>
+            <h2><%= venue[:address] %></h2>
           </div>
-          <a class="card-link" href="#" ></a>
         </div>
         <div class="confirm-selection text-center">
           <a href="#" class="btn btn-primary">select</a>
           <a href="#" class="btn btn-danger">shuffle</a>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Restaurant</h2>
-          </div>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
-          <a href="#" class="btn btn-danger">shuffle</a>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-          <div class="card-category">Popular</div>
-          <div class="card-description">
-            <h2>Restaurant</h2>
-          </div>
-          <a class="card-link" href="#" ></a>
-        </div>
-        <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
-          <a href="#" class="btn btn-danger">shuffle</a>
-        </div>
-      </div>
-    </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
+
+</div>
 </div>

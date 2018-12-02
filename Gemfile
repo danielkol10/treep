@@ -21,7 +21,7 @@ gem 'faker'
 gem 'foursquare2'
 gem 'date'
 gem "geocoder"
-
+gem "faraday"
 
 gem 'acts-as-taggable-on', '~> 6.0'
 
