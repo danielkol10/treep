@@ -43,3 +43,33 @@
 .image-wrapper {
   background-size: cover;
 }
+.btn-treehouse {
+  position: absolute;
+  text-align: center;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #6AD58B;
+  transition: background 0.3s ease;
+}
+.btn-treehouse:hover {
+  opacity: 1;
+  background: #3ac162;
+  text-decoration: none;
+  color: white;
+}
+
+.header {
+  margin-top: 100px;
+}
+
+.image-wrapper {
+  height: 100vh;
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.form_full_width {
+  width: 80%;
+}
