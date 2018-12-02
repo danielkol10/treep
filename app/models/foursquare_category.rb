@@ -1,0 +1,2 @@
+class FoursquareCategory < ApplicationRecord
+end
