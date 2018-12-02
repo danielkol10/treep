@@ -16,7 +16,6 @@ fourquare_category.each do |cat|
   FoursquareCategory.create(name: cat)
 end
 
-
 10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
