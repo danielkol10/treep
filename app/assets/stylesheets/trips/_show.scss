@@ -1,202 +1,80 @@
-
-.example-header {
-    background: #3D4351;
-    color: #FFF;
-    font-weight: 300;
-    padding: 3em 1em;
-    text-align: center;
-    h1 {
-        color: #FFF;
-        font-weight: 300;
-        margin-bottom: 20px
-    }
-    p {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-weight: 700;
-    }
-}
-.container-fluid {
-    .row {
-        padding: 0 0 4em 0;
-        &:nth-child(even) {
-            background: #F1F4F5;
-        }
-    }
-}
-
-.example-title {
-    text-align: center;
-    margin-bottom: 60px;
-    padding: 3em 0;
-    border-bottom: 1px solid #E4EAEC;
-    p {
-        margin: 0 auto;
-        font-size: 16px;
-        max-width: 400px;
-    }
-}
-
-/*==================================
-    TIMELINE
-==================================*/
-
-    /*-- GENERAL STYLES
-    ------------------------------*/
-    .timeline {
-        line-height: 1.4em;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        h1, h2, h3, h4, h5, h6 {
-            line-height: inherit;
-        }
-    }
-
-    /*----- TIMELINE ITEM -----*/
-
-    .timeline-item {
-        padding-left: 40px;
-        position: relative;
-        &:last-child {
-            padding-bottom: 0;
-        }
-    }
-
-    /*----- TIMELINE INFO -----*/
-
-    .timeline-info {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 3px;
-        margin: 0 0 .5em 0;
-        text-transform: uppercase;
-        white-space: nowrap;
-    }
-    /*----- TIMELINE MARKER -----*/
-
-    .timeline-marker {
-        position: absolute;
-        top: 0; bottom: 0; left: 0;
-        width: 15px;
-        &:before {
-            background: orange;
-            border: 3px solid transparent;
-            border-radius: 100%;
-            content: "";
-            display: block;
-            height: 15px;
-            position: absolute;
-            top: 4px; left: 0;
-            width: 15px;
-            transition: background 0.3s ease-in-out,
-                    border 0.3s ease-in-out;
-        }
-        &:after {
-            content: "";
-            width: 3px;
-            background: #CCD5DB;
-            display: block;
-            position: absolute;
-            top: 24px; bottom: 0; left: 6px;
-        }
-        .timeline-item:last-child &:after {
-            content: none;
-        }
-    }
-    .timeline-item:not(.period):hover .timeline-marker:before {
-        background: transparent;
-        border: 3px solid orange;
-    }
-
-    /*----- TIMELINE CONTENT -----*/
-
-    .timeline-content {
-        padding-bottom: 40px;
-        p:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    /*----- TIMELINE PERIOD -----*/
-
-    .period {
-        padding: 0;
-        .timeline-info {
-            display: none;
-        }
-        .timeline-marker {
-            &:before {
-                background: transparent;
-                content: "";
-                width: 15px;
-                height: auto;
-                border: none;
-                border-radius: 0;
-                top: 0;
-                bottom: 30px;
-                position: absolute;
-                border-top: 3px solid #CCD5DB;
-                border-bottom: 3px solid #CCD5DB;
-            }
-            &:after {
-                content: "";
-                height: 32px;
-                top: auto;
-            }
-        }
-        .timeline-content {
-            padding: 40px 0 70px;
-        }
-        .timeline-title {
-            margin: 0;
-        }
-    }
-
-    /*----------------------------------------------
-        MOD: TIMELINE SPLIT
-    ----------------------------------------------*/
-
-        .timeline-split {
-            @media (min-width: 768px) {
-                .timeline {
-                    display: table;
-                }
-                .timeline-item {
-                    display: table-row;
-                    padding: 0;
-                }
-                .timeline-info,
-                .timeline-marker,
-                .timeline-content,
-                .period .timeline-info {
-                    display: table-cell;
-                    vertical-align: top;
-                }
-                .timeline-marker {
-                    position: relative;
-                }
-                .timeline-content {
-                    padding-left: 30px;
-                }
-                .timeline-info {
-                    padding-right: 30px;
-                }
-                .period .timeline-title {
-                    position: relative;
-                    left: -45px;
-                }
-            }
-        }
-.timeline {
+.image-wrapper {
   height: 100vh;
-  overflow-y: scroll;
-  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
-#map {
-  top: 0;
-  height: 100vh;
-  position: sticky !important;
+
+.show-category-title {
+  margin: 120px 0px 0 10px;
+  color: white;
+  text-shadow: 0px 1px 0px black;
+}
+
+.show-category-card-sect {
+  margin-top: 15px;
+  display: flex;
+
+}
+
+.show-category-card {
+
+  margin: 15px 0;
+
+}
+
+
+.show-category-card-image {
+  background: #272727;
+  position: relative;
+  display: block;
+  overflow: hidden!important;
+  border-radius: 5px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.show-category-card-image img {
+  width: 100%;
+  opacity: 0.8;
+  position: relative;
+  margin: 0 auto;
+  transform: scale(1,1);
+  -ms-transform: scale(1,1);
+  -webkit-transform: scale(1,1);
+  transition: all 0.2s linear 0s;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.show-category-card-image:hover img {
+  opacity: 0.4;
+  z-index: 5;
+  transform: scale(1.2,1.2);
+  transition: all 0.2s linear 0s;
+}
+
+.show-category-card-image a:hover {
+  color: #af9b7a;
+  text-decoration: none;
+  outline-width: 0;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.show-category-card-caption{
+  position: absolute;
+  z-index: 7;
+  display: block;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: normal;
+  line-height: 1.7rem;
 }
