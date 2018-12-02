@@ -1,0 +1,2 @@
+class EventbriteCategory < ApplicationRecord
+end
