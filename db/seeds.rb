@@ -10,44 +10,7 @@ Venue.destroy_all
 Event.destroy_all
 Trip.destroy_all
 User.destroy_all
-TripCategory.destroy_all
-Trip.destroy_all
-Category.destroy_all
 
-categories = {
-  Italian: ["4bf58dd8d48988d110941735"],
-  Japanese: ["4bf58dd8d48988d111941735"],
-  Chinese: ["4bf58dd8d48988d111941735"],
-  Mediterranean: ["4bf58dd8d48988d1c0941735"],
-  Burger: ["4bf58dd8d48988d16c941735"],
-  Mexican: ["4bf58dd8d48988d1c1941735"],
-
-  Nightclubs: ["4bf58dd8d48988d11f941735"],
-  Bars: ["4bf58dd8d48988d116941735"],
-  Classical: ["4bf58dd8d48988d136941735","4bf58dd8d48988d137941735"],
-  Calm: ["4bf58dd8d48988d102941735"],
-  karaoke: ["4bf58dd8d48988d120941735"],
-  music_venues: ["4bf58dd8d48988d1e5931735"],
-
-  hidden_gems: ["52e81612bcbc57f1066b7a30"],
-  famous_monuments: ["4bf58dd8d48988d12d941735"],
-  adrenaline: ["4bf58dd8d48988d182941735", "4bf58dd8d48988d193941735", "52e81612bcbc57f1066b79ea"],
-  family: ["4bf58dd8d48988d17b941735", "4bf58dd8d48988d182941735", "4bf58dd8d48988d193941735", "52e81612bcbc57f1066b79e6", "52e81612bcbc57f1066b79eb"],
-
-  Art_Musuem: ["4bf58dd8d48988d18f941735"],
-  History_musuem: ["4bf58dd8d48988d190941735"],
-  Science_musuem: ["4bf58dd8d48988d191941735","4bf58dd8d48988d192941735"],
-  street_art: ["507c8c4091d498d9fc8c67a9"],
-
-  Low_Budget: ["cheap"],
-  Regular: ["regular"],
-  Luxury: ["luxury"]
-}
-
-
-categories.each do |category, serials|
-    Category.create!(name: category.to_s.humanize, serials: serials )
-end
 
 10.times do
   user = User.new(

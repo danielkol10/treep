@@ -12,12 +12,10 @@
     <div class="form">
       <div class="simple-form form-inline">
         <div class="form-box">
-          <%= simple_form_for :search, url: new_trip_path, method: :get do |f| %>
-          <%= f.input :city_query, label: false, placeholder: "Destination", input_html:{class: "city-input"} %>
-          <%= f.input :starts_at,label: false, as: :string, placeholder: "Start date", required: true, input_html: {class: "datepicker date-input", id: "start-date"} %>
-          <%= f.input :ends_at,label: false, as: :string, placeholder: "End date", required: true, input_html: {class: "datepicker date-input", id: "end-date"} %>
-          <%#= f.input :date_query, label: false, placeholder: "Date", input_html:{class: "date-input"} %>
-          <%= f.input :people_query, label: false, placeholder: "No. People", input_html:{class: "people-input", id: "people-input"} %>
+          <%= simple_form_for @trip, url: trips_path, method: :post do |f| %>
+          <%= f.input :city, label: false, placeholder: "Destination", input_html:{class: "city-input"} %>
+          <%= f.input :start_day,label: false, as: :string, placeholder: "Start date", required: true, input_html: {class: "datepicker date-input", id: "start-date"} %>
+          <%= f.input :end_day,label: false, as: :string, placeholder: "End date", required: true, input_html: {class: "datepicker date-input", id: "end-date"} %>
           <%= f.submit 'Explore', class: "btn home-button" %>
           <% end %>
         </div>
