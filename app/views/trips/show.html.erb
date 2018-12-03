@@ -1,28 +1,26 @@
-
 <div class="bg-image-wrapper" style="background-image:
 linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
-<div class="container">
-  <div class="show-category-title">
-    <div class="title-bg">
-      <h2>You are traveling to <%= @trip.city.capitalize %> !</h2>
-      <h4>Check the below boxes in order to customize your trip</h4>
-    </div>
-  </div>
-  <div class="show-category-card-sect">
-    <div class="row">
-      <% @foursquare_categories.each do |cat| %>
-      <%= link_to new_trip_venue_path(@trip, section: cat.category_id) do  %>
-      <div class="col-xs-12 col-lg-4">
-        <div class="show-category-card">
-          <div class="show-category-card-image">
-            <%= image_tag cat.img_url, class: "img-fluid" %>
-            <div class="show-category-card-caption"><%= cat.name %></div>
-          </div>
-        </div>
+  <div class="container">
+    <div class="show-category-title">
+      <div class="title-bg">
+        <h2>You are traveling to <%= @trip.city.capitalize %> !</h2>
+        <h4>Check the below boxes in order to customize your trip</h4>
       </div>
-      <% end %>
-      <% end %>
+    </div>
+    <div class="show-category-card-sect">
+      <div class="row">
+        <% @foursquare_categories.each do |cat| %>
+          <%= link_to new_trip_venue_path(@trip, section: cat.category_id) do  %>
+            <div class="col-xs-12 col-lg-4">
+              <div class="show-category-card">
+                <div class="show-category-card-image">
+                  <div class="show-category-card-caption"><%= cat.name %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>
