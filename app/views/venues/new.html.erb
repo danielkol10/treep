@@ -28,7 +28,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<
           </div>
         </div>
         <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
+          <%= link_to "Select", trip_venues_path(params: { venue: {name: venue[:name], location: venue[:address], trip_id: @trip.id }}), method: :post, class:"btn btn-primary" %>
           <a href="#" class="btn btn-danger">shuffle</a>
         </div>
       </div>
