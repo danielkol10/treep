@@ -1,0 +1,67 @@
+.trip-overview-header {
+  background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543861672/abstract-art-blur-301664.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 35vh;
+  background-position: center center;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.trip-overview-title {
+  margin-top: 140px;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 1px 0px black;
+}
+
+.trip-content-wrapper {
+  margin-top: 40px;
+}
+
+.trip-content {
+  position: relative;
+  height: 350px;
+  border: 1px solid $dark-green;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+
+
+.trip-card-title {
+  position: absolute;
+  left: 15px;
+  width: 50%;
+}
+
+.trip-card-image {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  border: 1px solid $dark-green;
+}
+
+.trip-card-image img {
+  height: 200px;
+  padding: 6px;
+}
+
+.trip-card-address {
+  position: absolute;
+  top: 25px;
+  right: 75px;
+  width: 40%;
+}
+
+.trip-card-description {
+  position: absolute;
+  top: 125px;
+  right: 75px;
+  width: 40%;
+}
+
+.trip-card-button {
+  position: absolute;
+  right: 308px;
+  bottom: 15px;
+  width: 20%;
+}
