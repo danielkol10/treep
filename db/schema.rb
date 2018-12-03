@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_12_02_224044) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +39,8 @@ ActiveRecord::Schema.define(version: 2018_12_02_224044) do
   create_table "foursquare_categories", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
+    t.string "category_id"
+    t.string "sub_categories", default: [], array: true
   end
 
   create_table "trips", force: :cascade do |t|
