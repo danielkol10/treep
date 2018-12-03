@@ -11,9 +11,32 @@ foursquare_category = {
   "outdoors" => "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg"
 }
 
-foursquare_category.each do |cat, url|
-  FoursquareCategory.create(name: cat, img_url: url)
-end
+
+FoursquareCategory.create!(
+  name: "food",
+  img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
+  category_id: "4d4b7105d754a06374d81259"
+)
+
+
+FoursquareCategory.create!(
+  name: "drinks",
+  img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
+  category_id: "4d4b7105d754a06376d81259"
+)
+
+FoursquareCategory.create!(
+  name: "arts",
+  img_url: "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
+  category_id: "4d4b7104d754a06370d81259"
+)
+
+FoursquareCategory.create!(
+  name: "outdoors",
+  img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg",
+  category_id: "4d4b7105d754a06377d81259"
+)
+
 
 10.times do
   user = User.new(
@@ -50,56 +73,56 @@ events = Event.create!(
   event_start: DateTime.new(2019,2,7,9),
   event_end: DateTime.new(2019,2,7,12),
   trip_id: trips[0].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,9,13),
   event_end: DateTime.new(2019,2,9,15),
   trip_id: trips[0].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,9,14),
   event_end: DateTime.new(2019,2,9,18),
   trip_id: trips[0].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,9,17),
   event_end: DateTime.new(2019,3,9,19),
   trip_id: trips[1].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,9,18),
   event_end: DateTime.new(2019,3,9,20),
   trip_id: trips[1].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,12,9),
   event_end: DateTime.new(2019,3,12,13),
   trip_id: trips[1].id
-  )
+)
 
 events = Event.create!(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,2,15,14),
   event_end: DateTime.new(2019,2,15,18),
   trip_id: trips[1].id
-  )
+)
 
 events = Event.create(
   name: Faker::Hacker.abbreviation,
   event_start: DateTime.new(2019,3,21,14),
   event_end: DateTime.new(2019,3,21,19),
   trip_id: trips[1].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -107,7 +130,7 @@ venue = Venue.create!(
   open_end: "1800",
   location:  "10 Oxford Street, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -115,7 +138,7 @@ venue = Venue.create!(
   open_end: "0600",
   location:  "25 High Street Kensington, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -123,7 +146,7 @@ venue = Venue.create!(
   open_end: "2200",
   location:  "52 Baker Street, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -131,7 +154,7 @@ venue = Venue.create!(
   open_end: "2000",
   location:  "175 Oxford Street, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -139,7 +162,7 @@ venue = Venue.create!(
   open_end: "1300",
   location:  "72 Harley Street, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -147,7 +170,7 @@ venue = Venue.create!(
   open_end: "1700",
   location:  "12 Covent Gardens, London",
   trip_id: trips[0].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -155,7 +178,7 @@ venue = Venue.create!(
   open_end: "1700",
   location:  "56 Wilson Road, Ridgewood, New York 11385",
   trip_id: trips[1].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -163,7 +186,7 @@ venue = Venue.create!(
   open_end: "0000",
   location:  "850 Beach Street Brooklyn, New York 11223",
   trip_id: trips[1].id
-  )
+)
 
 venue = Venue.create!(
   name: Faker::Company.name,
@@ -171,4 +194,4 @@ venue = Venue.create!(
   open_end: "2200",
   location:  "288 High Noon Court Bronx, New York 10456",
   trip_id: trips[1].id
-  )
+)

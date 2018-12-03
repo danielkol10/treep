@@ -1,6 +1,6 @@
+
 <div class="bg-image-wrapper" style="background-image:
 linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
-
 <div class="container">
   <div class="show-category-title">
     <div class="title-bg">
@@ -11,7 +11,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
       <div class="show-category-card-sect">
         <div class="row">
           <% @foursquare_categories.each do |cat| %>
-          <%= link_to new_trip_venue_path(@trip, section: cat.name) do  %>
+          <%= link_to new_trip_venue_path(@trip, section: cat.category_id) do  %>
           <div class="col-xs-12 col-lg-4">
             <div class="show-category-card">
               <div class="show-category-card-image">
@@ -19,13 +19,9 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
                 <div class="show-category-card-caption"><%= cat.name %></div>
               </div>
             </div>
-          </div>
           <% end %>
-          <% end %>
-        </div>
+        <% end %>
       </div>
-</div>
-
-
-
+    </div>
+  </div>
 </div>
