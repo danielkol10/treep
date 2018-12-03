@@ -1,26 +1,24 @@
 module ApplicationHelper
-  eventbrite_categories = {
-    "Music" => "103",
-    "Business" => "101",
-    "Food & Drink" => "110",
-    "Community" => "113",
-    "Arts" => "105",
-    "Film & Media" => "104",
-    "Sports & Fitness" => "108",
-    "Health" => "107",
-    "Science & Tech" => "102",
-    "Travel & Outdoor" => "109",
-    "Charity & Causes" => "111",
-    "Spirituality" => "114",
-    "Family & Education" => "115",
-    "Seasonal & Holidy" => "116",
-    "Government" => "112",
-    "Fashion" => "106"
-  }
+  # eventbrite_categories = {
+  #   "Music" => "103",
+  #   "Business" => "101",
+  #   "Food & Drink" => "110",
+  #   "Community" => "113",
+  #   "Arts" => "105",
+  #   "Film & Media" => "104",
+  #   "Sports & Fitness" => "108",
+  #   "Health" => "107",
+  #   "Science & Tech" => "102",
+  #   "Travel & Outdoor" => "109",
+  #   "Charity & Causes" => "111",
+  #   "Spirituality" => "114",
+  #   "Family & Education" => "115",
+  #   "Seasonal & Holidy" => "116",
+  #   "Government" => "112",
+  #   "Fashion" => "106"
+  # }
 
   def foursquare_api(query, price, section, near)
-    # conn = Faraday.new(url: "https://api.foursquare.com/v2/venues
-    #   /explore?near=#{city}&client_id=#{ENV['FOURSQUARE_ID']}&client_secret=#{ENV['FOURSQUARE_SECRET']}&v=20181202")
     base_url = "https://api.foursquare.com/v2/venues/"
 
     foursquare_response = Faraday.new(url: base_url) do |f|
@@ -36,5 +34,15 @@ module ApplicationHelper
       venues_details << { name: venue["venue"]["name"], address: venue["venue"]["location"]["address"] }
     end
     return venues_details
+  end
+
+  def eventbrite_api(latitude, longitude, start_day, end_day, slug)
+    base_url = "https://www.eventbriteapi.com/v3/events/"
+
+    eventbrite_response = Faraday.new(url: base_url) do |f|
+      f.adapter :net_http
+      f.response :json
+    end
+    response = eventbrite_response.get("search/?", token: ENV['EVENTBRITE'], "location.latitude" => latitude, "location.longitude" => longitude, "location.within" => "3mi", expand: "venue", "start_date.range_start" => start_day, "start_date.range_end" => end_day, categories: slug)
   end
 end

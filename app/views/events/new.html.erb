@@ -1,0 +1,32 @@
+
+<div class="image-wrapper" style="background-image:
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'beach-car.jpg' %>);">
+<div class="container">
+  <div class="header">
+    <div class="header text-center">
+      <h1>Event type</h1>
+      <h4>Which music events are to your likeing?</h4>
+    </div>
+  </div>
+
+  <div class="venue-category-cards">
+    <div class="row">
+      <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+          <div class="card-category"><%= event[:name] %></div>
+          <div class="card-description">
+            <h2><%= event[:address] %></h2>
+          </div>
+        </div>
+        <div class="confirm-selection text-center">
+          <a href="#" class="btn btn-primary">select</a>
+          <a href="#" class="btn btn-danger">shuffle</a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div>

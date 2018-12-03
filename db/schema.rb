@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_120042) do
+ActiveRecord::Schema.define(version: 2018_12_02_224044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,16 +18,18 @@ ActiveRecord::Schema.define(version: 2018_12_02_120042) do
   create_table "eventbrite_categories", force: :cascade do |t|
     t.string "name"
     t.string "name_slug"
+    t.string "img_url"
   end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.datetime "event_start"
     t.datetime "event_end"
-    t.string "location"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "latitude"
+    t.string "longitude"
     t.string "description"
     t.index ["trip_id"], name: "index_events_on_trip_id"
   end
@@ -44,8 +46,8 @@ ActiveRecord::Schema.define(version: 2018_12_02_120042) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
+    t.string "latitude"
+    t.string "longitude"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 

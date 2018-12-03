@@ -1,4 +1,5 @@
 FoursquareCategory.destroy_all
+EventbriteCategory.destroy_all
 Venue.destroy_all
 Event.destroy_all
 Trip.destroy_all
@@ -13,6 +14,17 @@ foursquare_category = {
 
 foursquare_category.each do |cat, url|
   FoursquareCategory.create(name: cat, img_url: url)
+end
+
+eventbrite_category = {
+  "Music" => "103",
+  "Business" => "101",
+  "Seasonal & Holiday" => "116",
+  "Science & Tech" => "102"
+}
+
+eventbrite_category.each do |cat, slug|
+  EventbriteCategory.create(name: cat, name_slug: slug)
 end
 
 10.times do

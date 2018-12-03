@@ -3,17 +3,15 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(h
 
 <div class="container">
   <div class="show-category-title">
-    <h2>You are traveling to <%= @trip.city %> !</h2>
-    <h3>Check the below boxes in order to customize your trip</h3>
+    <h2>What type of events are you looking to attend during your trip?</h2>
   </div>
   <div class="show-category-card-sect">
     <div class="row">
-      <% @foursquare_categories.each do |cat| %>
-      <%= link_to new_trip_venue_path(@trip, section: cat.name) do %>
+      <% @eventbrite_categories.each do |cat| %>
+      <%= link_to new_trip_event_path(@trip, categories: cat.name_slug) do %>
       <div class="col-xs-12 col-lg-6">
         <div class="show-category-card">
           <div class="show-category-card-image">
-            <%= image_tag cat.img_url, class: "img-fluid" %>
             <div class="show-category-card-caption"><%= cat.name %></div>
           </div>
         </div>
@@ -22,5 +20,4 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(h
       <% end %>
     </div>
   </div>
-  <%= link_to "Next", trip_events_path(@trip)  %>
 </div>
