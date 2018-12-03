@@ -12,12 +12,8 @@ class VenuesController < ApplicationController
       @food_type = params["search"]["food_type"]
       @venues = foursquare_api(@food_type, 2, @section, @location)
     end
-
-    # foursquare_api(query, 2, "food", Trip.last.city)
-    # results = foursquare_api("query", 2, section, "london")
   end
 
-  def create
     @venue = Venue.new(venue_params)
     @venue.save
     redirect_to new_trip_venue_path
@@ -26,4 +22,5 @@ class VenuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(:name, :location, :trip_id)
   end
+>>>>>>> e5d65a10db3a6287434287d1b4f6e475de5b5174
 end

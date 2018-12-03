@@ -4,38 +4,6 @@ Event.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-# foursquare_category = {
-#   "food" => "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
-#   "night" => "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
-#   "arts" => "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
-#   "outdoors" => "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg"
-# }
-
-# FoursquareCategory.create!(
-#   name: "food",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
-#   category_id: "4d4b7105d754a06374d81259"
-# )
-
-
-# FoursquareCategory.create!(
-#   name: "night",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
-#   category_id: "4d4b7105d754a06376d81259"
-# )
-
-# FoursquareCategory.create!(
-#   name: "arts",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
-#   category_id: "4d4b7104d754a06370d81259"
-# )
-
-# FoursquareCategory.create!(
-#   name: "outdoors",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg",
-#   category_id: "4d4b7105d754a06377d81259"
-# )
-
 
 
 foursquare_category = {
@@ -61,48 +29,12 @@ foursquare_category.each do |category, id|
   FoursquareCategory.create!(name: category, category_id: id)
 end
 
-
-
-
-# "burger", "asian", "french", 'Italian', Middle Eastern Restaurant
-# food_sub_categories = ['4bf58dd8d48988d16c941735', '4bf58dd8d48988d142941735', '4bf58dd8d48988d10c941735', '4bf58dd8d48988d110941735', '4bf58dd8d48988d115941735']
-
-
-
-
-# pub, nightclub, other nightlife, nightmarket, brewery
-# night_sub_categories = ['4bf58dd8d48988d11b941735', '4bf58dd8d48988d11f941735', '4bf58dd8d48988d11a941735', '53e510b7498ebcb1801b55d4', '50327c8591d4c4b30a586d5d']
-
-
-
-
-# art_gallery, historic_site, street_art, theater
-# arts_sub_categories = ['4bf58dd8d48988d1e2931735', '4deefb944765f83613cdba6e', '52e81612bcbc57f1066b79ee', '4bf58dd8d48988d137941735']
-
-
-# national_parks, trail, gym, forest, scenic_lookout
-#outdoors_fitness = ['52e81612bcbc57f1066b7a21', '4bf58dd8d48988d159941735', '4bf58dd8d48988d176941735', '52e81612bcbc57f1066b7a23', '4bf58dd8d48988d165941735']
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# pet_cafe = '56aa371be4b08b9a8d573508'
-
-
+eventbrite_category_name = ["Music", "Business", "Film & Media", "Science & Tech"]
+eventbrite_category_id = ["103", "101", "104", "102"]
+eventbrite_subcategory_music = ["3002", "3003", "3006", "3008"]
+eventbrite_subcategory_business = ["1001", "1002", "1005", "1007"]
+eventbrite_subcategory_film = ["4004", "4003", "4002", "4005"]
+eventbrite_subcategory_science = ["2001", "2002", "2003", "2004"]
 
 
 10.times do
