@@ -15,5 +15,16 @@ class VenuesController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
   end
+=======
+    @venue = Venue.new(venue_params)
+    @venue.save
+    redirect_to new_trip_venue_path
+  end
+
+  def venue_params
+    params.require(:venue).permit(:name, :location, :trip_id)
+  end
+>>>>>>> e5d65a10db3a6287434287d1b4f6e475de5b5174
 end

@@ -1,6 +1,6 @@
 
-<div class="image-wrapper" style="background-image:
-linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path 'beach-car.jpg' %>);">
+<div class="bg-image-wrapper" style="background-image:
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
 <div class="container">
   <div class="header">
     <div class="header text-center">
@@ -28,7 +28,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<
           </div>
         </div>
         <div class="confirm-selection text-center">
-          <a href="#" class="btn btn-primary">select</a>
+          <%= link_to "Select", trip_venues_path(params: { venue: {name: venue[:name], location: venue[:address], trip_id: @trip.id }}), method: :post, class:"btn btn-primary" %>
           <a href="#" class="btn btn-danger">shuffle</a>
         </div>
       </div>
