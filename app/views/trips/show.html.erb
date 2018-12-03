@@ -15,7 +15,6 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
           <div class="col-xs-12 col-lg-4">
             <div class="show-category-card">
               <div class="show-category-card-image">
-                <%= image_tag cat.img_url, class: "img-fluid" %>
                 <div class="show-category-card-caption"><%= cat.name %></div>
               </div>
               <%= simple_form_for :sub_category, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
