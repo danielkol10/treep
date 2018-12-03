@@ -2,21 +2,20 @@
 <button id="menu-button">Hide Menu</button>
 <div id="menu">
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-    <div class="card-category">Popular</div>
     <div class="card-description">
       <h1>French food || italian food || japanese food || fuck you food</h1>
     </div>
-    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
     <a class="card-link" href="#" ></a>
   </div>
-  <div class="button">
-    <button>submit</button>
+  <div class="btn btn-info" id="submit-button">
+    <a href="#">Submit</a>
   </div>
 </div>
 <script>
   // Script to hide/show menu
   var button = document.querySelector('#menu-button');
   var menu = document.querySelector('#menu');
+  var submit = document.querySelector("#submit-button");
   button.addEventListener('click', function (event) {
         if (menu.style.display == "") {
             menu.style.display = "none";
@@ -27,4 +26,12 @@
         }
       }
     );
+  
+  submit.addEventListener('click', function (event) {
+    if (menu.style.display == "") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "";
+    }
+  });
 </script>
