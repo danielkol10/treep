@@ -1,23 +1,4 @@
 module ApplicationHelper
-  # eventbrite_categories = {
-  #   "Music" => "103",
-  #   "Business" => "101",
-  #   "Food & Drink" => "110",
-  #   "Community" => "113",
-  #   "Arts" => "105",
-  #   "Film & Media" => "104",
-  #   "Sports & Fitness" => "108",
-  #   "Health" => "107",
-  #   "Science & Tech" => "102",
-  #   "Travel & Outdoor" => "109",
-  #   "Charity & Causes" => "111",
-  #   "Spirituality" => "114",
-  #   "Family & Education" => "115",
-  #   "Seasonal & Holidy" => "116",
-  #   "Government" => "112",
-  #   "Fashion" => "106"
-  # }
-
   def foursquare_api(query, price, section, near)
     base_url = "https://api.foursquare.com/v2/venues/"
 
@@ -52,4 +33,11 @@ module ApplicationHelper
       events_details << { name: event["name"]["text"], latitude: event["venue"]["latitude"], longitude: event["venue"]["longitude"] }
     end
   end
+
+  eventbrite_category_name = ["Music", "Business", "Film & Media", "Science & Tech"]
+  eventbrite_category_id = ["103", "101", "104", "102"]
+  eventbrite_subcategory_music = ["3002", "3003", "3006", "3008"]
+  eventbrite_subcategory_business = ["1001", "1002", "1005", "1007"]
+  eventbrite_subcategory_film = ["4004", "4003", "4002", "4005"]
+  eventbrite_subcategory_science = ["2001", "2002", "2003", "2004"]
 end

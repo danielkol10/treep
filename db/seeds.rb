@@ -29,14 +29,6 @@ foursquare_category.each do |category, id|
   FoursquareCategory.create!(name: category, category_id: id)
 end
 
-eventbrite_category_name = ["Music", "Business", "Film & Media", "Science & Tech"]
-eventbrite_category_id = ["103", "101", "104", "102"]
-eventbrite_subcategory_music = ["3002", "3003", "3006", "3008"]
-eventbrite_subcategory_business = ["1001", "1002", "1005", "1007"]
-eventbrite_subcategory_film = ["4004", "4003", "4002", "4005"]
-eventbrite_subcategory_science = ["2001", "2002", "2003", "2004"]
-
-
 10.times do
   user = User.new(
     first_name: Faker::Name.first_name,
