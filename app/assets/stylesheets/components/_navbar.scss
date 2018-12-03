@@ -18,8 +18,16 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
+  border: 2px solid #999;
+  border-radius: 50%;
+}
+
+.navbar-wagon .avatar:hover {
+  height: 45px;
+  width: 45px;
+  border: 2px solid #f4f4f4;
   border-radius: 50%;
 }
 
@@ -39,11 +47,18 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: white;
-  font-size: 17px;
+  border: 2px solid #999999;
+  padding: 8px 15px;
+  border-radius: 50px;
+  margin: 5px;
+
+
 }
 .navbar-wagon-link:hover {
+  text-decoration: none;
   color: white;
-  text-decoration: underline overline;
+  border: 2px solid #f4f4f4;
+
 }
 
 /* Dropdown menu */
