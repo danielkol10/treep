@@ -5,7 +5,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   <div class="show-category-title">
     <div class="title-bg">
       <h2>You are traveling to <%= @trip.city.capitalize %> !</h2>
-      <h4>Check the below boxes in order to customize your trip</h4>
+      <h4>Choose Your Preferences From Each category</h4>
     </div>
   </div>
       <div class="show-category-card-sect">
@@ -18,6 +18,14 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
                 <%= image_tag cat.img_url, class: "img-fluid" %>
                 <div class="show-category-card-caption"><%= cat.name %></div>
               </div>
+              <%= simple_form_for :sub_category, wrapper: :inline_form, html: { class: "form-inline form_full_width" }, wrapper_mappings: {
+                boolean: :inline_boolean
+              }, method: :get do |f| %>
+              <%= f.input :price, as: :check_boxes, collection: ["Italian", "Asian", "Burger"] %>
+              <div class="submit-category-button">
+              <%= f.submit "Submit", class: "btn home-button" %>
+              </div>
+              <% end %>
             </div>
           </div>
           <% end %>

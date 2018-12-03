@@ -4,16 +4,6 @@ Event.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-foursquare_category = {
-  "food" => "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
-  "drinks" => "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
-  "arts" => "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
-  "outdoors" => "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg"
-}
-
-foursquare_category.each do |cat, url|
-  FoursquareCategory.create(name: cat, img_url: url)
-end
 
 10.times do
   user = User.new(
