@@ -27,6 +27,49 @@ eventbrite_category.each do |cat, slug|
   EventbriteCategory.create(name: cat, name_slug: slug)
 end
 
+eventbrite_category_name = ["Music", "Business", "Film & Media", "Science & Tech"]
+eventbrite_category_id = ["103", "101", "104", "102"]
+eventbrite_subcategory_music = ["3002", "3003", "3006", "3008"]
+eventbrite_subcategory_business = ["1001", "1002", "1005", "1007"]
+eventbrite_subcategory_film = ["4004", "4003", "4002", "4005"]
+eventbrite_subcategory_science = ["2001", "2002", "2003", "2004"]
+
+
+# eventbrite_category_subcategories = [
+#   "Music" {
+#     "Blues & Jazz" => "3002",
+#     "Classical" => "3003",
+#     "EDM / Electronic" => "3006",
+#     "Hip Hop / Rap" => "3008"
+#   }
+
+#   "Business" {
+#     "Startups & Small Business" => "1001",
+#     "Finance" => "1002",
+#     "Real Estate" => "1005",
+#     "Sales & Marketing" => "1007"
+#   }
+
+#   "Film & Media" {
+#     "Gaming" => "4004"
+#     "Anime" => "4003"
+#     "Film" => "4002"
+#     "Comics" => "4005"
+#   }
+
+#   "Science & Tech" {
+#     "Medicine" => "2001"
+#     "Science" => "2002"
+#     "Biotech" => "2003 "
+#     "High Tech" => "2004"
+#   }
+# ]
+
+
+
+
+
+
 10.times do
   user = User.new(
     first_name: Faker::Name.first_name,

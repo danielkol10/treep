@@ -14,10 +14,6 @@ class VenuesController < ApplicationController
     end
   end
 
-  def create
-<<<<<<< HEAD
-  end
-=======
     @venue = Venue.new(venue_params)
     @venue.save
     redirect_to new_trip_venue_path
