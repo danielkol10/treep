@@ -43,6 +43,12 @@ module ApplicationHelper
       f.adapter :net_http
       f.response :json
     end
-    response = eventbrite_response.get("search/?", token: ENV['EVENTBRITE'], "location.latitude" => latitude, "location.longitude" => longitude, "location.within" => "3mi", expand: "venue", "start_date.range_start" => start_day, "start_date.range_end" => end_day, categories: slug)
+
+    response = eventbrite_response.get("search/?", token: ENV['EVENTBRITE'], "location.latitude" => latitude, "location.longitude" => longitude, "location.within" => "2mi", expand: "venue", "start_date.range_start" => start_day, "start_date.range_end" => end_day, categories: slug)
+    events = response.body["events"]
+    events_details = []
+    events.each do |event|
+      events_details << { name: event["name"]["text"], latitude: event["venue"]["latitude"], longitude: event["venue"]["longitude"] }
+    end
   end
 end

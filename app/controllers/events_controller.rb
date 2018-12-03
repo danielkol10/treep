@@ -12,10 +12,9 @@ class EventsController < ApplicationController
     @latitude = @trip.latitude
     @longitude = @trip.longitude
     @start_day = @trip.start_day
-    # @s = @start_day.iso8601 need to convert to format yyyy-MM-ddTHH:mm:ssZ and it will work
+    @formatted_start = @start_day.strftime('%Y-%m-%dT%H:%M:%S')
     @end_day = @trip.end_day
-    # @e = DateTime.strptime(@end_day, "%Y-%m-%dT%l:%M:%S%z")
-    @events = eventbrite_api(@latitude, @longitude, @start_day, @end_day, @slug)
-    raise
+    @formatted_end = @end_day.strftime('%Y-%m-%dT%H:%M:%S')
+    @events = eventbrite_api(@latitude, @longitude, @formatted_start, @formatted_end, @slug)
   end
 end
