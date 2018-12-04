@@ -10,11 +10,13 @@ console.log("test")
     button.addEventListener('click', function (event) {
       let menu = button.lastElementChild;
       console.log(button)
-      if (menu.style.display == "") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "";
-      }
+      // if (menu.style.display == "") {
+      //   menu.style.display = "none";
+      // } else {
+      //   menu.style.display = "";
+      // }
+      menu.classList.toggle("hide-start");
+
     }
     );
     });
@@ -26,3 +28,4 @@ console.log("test")
         menu.style.display = "";
       }
     });
+// button.disabled=true
