@@ -12,11 +12,11 @@ class TripsController < ApplicationController
     @trip.save
 
     coord = @trip.get_coord
-    redirect_to trip_path(@trip)
+    redirect_to trip_venues_path(@trip)
   end
 
   def show
-    @foursquare_categories = FoursquareCategory.all
+
   end
 
   def edit
