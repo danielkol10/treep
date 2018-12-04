@@ -4,7 +4,6 @@ console.log("test")
     let menus = document.querySelectorAll('.menu');
 
     console.log(menus);
-    let submit = document.querySelector("#submit-button");
 
     buttons.forEach((button) => {
     button.addEventListener('click', function (event) {
@@ -15,11 +14,10 @@ console.log("test")
     );
     });
 
-    submit.addEventListener('click', function (event) {
-      if (menu.style.display == "") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "";
-      }
+
+
+    let submit = document.querySelector(".submit-button");
+    submit.addEventListener('click', function(event) {
+      console.log("yay do the thing")
     });
 // button.disabled=true
