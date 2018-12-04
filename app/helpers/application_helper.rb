@@ -55,4 +55,26 @@ module ApplicationHelper
     }
     return @eventbrite_sub_categories
   end
+
+  # def eventbrite_sub_imgs
+  #   @eventbrite_sub_categories_imgs = {
+  #     "Jazz & Blues" => ,
+  #     "Classical" => ,
+  #     "EDM / Electronic" => ,
+  #     "HipHop / Rap" => ,
+  #     "Startups & Small Business" => ,
+  #     "Finance" => ,
+  #     "Real Estate" => ,
+  #     "Sales & Marketing" => ,
+  #     "Gaming" => ,
+  #     "Anime" => ,
+  #     "Film" => ,
+  #     "Comics" => ,
+  #     "Medicine" => ,
+  #     "Science" => ,
+  #     "Biotech" => ,
+  #     "High Tech" =>
+  #   }
+  #   return @eventbrite_sub_categories_imgs
+  # end
 end
