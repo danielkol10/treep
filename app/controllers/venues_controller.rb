@@ -14,8 +14,6 @@ class VenuesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @location = @trip.city
     @price = 2
-    a = Venue::VENUE_CARD_IMAGES
-    raise
     if !params["sub_category"]["choices"].drop(1).nil?
       @chosen_categories = params["sub_category"]["choices"].drop(1)
       @chosen_categories.each do |category|
