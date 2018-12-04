@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_171326) do
+ActiveRecord::Schema.define(version: 2018_12_04_114257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 2018_12_03_171326) do
     t.string "name"
     t.datetime "event_start"
     t.datetime "event_end"
+    t.string "location"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.string "latitude"
     t.string "longitude"
-    t.string "description"
     t.index ["trip_id"], name: "index_events_on_trip_id"
   end
 
@@ -48,8 +49,8 @@ ActiveRecord::Schema.define(version: 2018_12_03_171326) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "latitude"
-    t.string "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
