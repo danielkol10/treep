@@ -20,7 +20,7 @@
       <% if @trip.venues.empty? %>
       <h2>No results found.</h2>
       <% else %>
-      <%= @trip.venues.each do |venue| %>
+      <% @trip.venues.each do |venue| %>
       <div class="trip-content">
 
         <div class="trip-card-title"><h3><%= venue.name %></h3></div>
