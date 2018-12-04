@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include ApplicationHelper
   def index
     @trip = Trip.find(params[:trip_id])
-    @eventbrite_categories = EventbriteCategory.all
+    raise
   end
 
   def new

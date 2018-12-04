@@ -4,38 +4,6 @@ Event.destroy_all
 Trip.destroy_all
 User.destroy_all
 
-
-# foursquare_category = {
-#   "food" => "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
-#   "night" => "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
-#   "arts" => "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
-#   "outdoors" => "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg"
-# }
-
-# FoursquareCategory.create!(
-#   name: "food",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
-#   category_id: "4d4b7105d754a06374d81259"
-# )
-
-# FoursquareCategory.create!(
-#   name: "night",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
-#   category_id: "4d4b7105d754a06376d81259"
-# )
-
-# FoursquareCategory.create!(
-#   name: "arts",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543769862/ancient-ancient-civilization-arch-159862.jpg",
-#   category_id: "4d4b7104d754a06370d81259"
-# )
-
-# FoursquareCategory.create!(
-#   name: "outdoors",
-#   img_url: "https://res.cloudinary.com/druzius/image/upload/v1543755693/jared-rice-389056-unsplash.jpg",
-#   category_id: "4d4b7105d754a06377d81259"
-# )
-
 foursquare_category = {
   "burger" => "4bf58dd8d48988d16c941735",
   "asian" => "4bf58dd8d48988d142941735",
