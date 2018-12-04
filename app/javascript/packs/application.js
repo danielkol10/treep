@@ -6,3 +6,4 @@ import { activeChoice } from '../components/category_choice';
 activeChoice();
 import  '../components/navbar';
 initUpdateNavbarOnScroll();
+import '../components/dropdown';

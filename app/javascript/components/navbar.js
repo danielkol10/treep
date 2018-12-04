@@ -1,5 +1,5 @@
   const navbar = document.querySelector('.navbar-wagon');
-  console.log('hello')
+  console.log('hello');
 
   window.addEventListener('scroll', (event) => {
     if (window.scrollY > 0 ) {
