@@ -1,23 +1,32 @@
-<div class="image-wrapper" style="background-image:
-linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(https://res.cloudinary.com/druzius/image/upload/v1543782088/fre-sonneveld-315-unsplash.jpg);">
-
+<div class="bg-image-wrapper" style="background-image:
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
 <div class="container">
   <div class="show-category-title">
-    <h2>What type of events are you looking to attend during your trip?</h2>
+    <div class="title-bg">
+      <h2>Explore Events Happening in <%= @trip.city.capitalize %> !</h2>
+      <h4>Choose Your Preferences From Each Category</h4>
+    </div>
   </div>
   <div class="show-category-card-sect">
     <div class="row">
-      <% @eventbrite_categories.each do |cat| %>
-      <%= link_to new_trip_event_path(@trip, categories: cat.name_slug) do %>
-      <div class="col-xs-12 col-lg-6">
+      <% i = 0 %>
+      <% @eventbrite_main_categories.each do |cat| %>
+      <div class="col-xs-12 col-lg-4">
         <div class="show-category-card">
           <div class="show-category-card-image">
-            <div class="show-category-card-caption"><%= cat.name %></div>
+            <div class="show-category-card-caption"><%= cat %></div>
           </div>
+          <%= simple_form_for :sub_category, url: trip_events_path(@trip), method: :post do |f| %>
+          <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
+          <div class="submit-category-button">
+            <%= f.submit "Submit", class: "btn home-button" %>
+          </div>
+          <% end %>
         </div>
       </div>
-      <% end %>
+      <% i = i+4 %>
       <% end %>
     </div>
   </div>
+</div>
 </div>
