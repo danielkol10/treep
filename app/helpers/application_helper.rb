@@ -1,5 +1,7 @@
 module ApplicationHelper
-  def foursquare_api(query, price, section, near)
+
+  def foursquare_api(category, near)
+
     base_url = "https://api.foursquare.com/v2/venues/"
 
     foursquare_response = Faraday.new(url: base_url) do |f|
@@ -7,7 +9,7 @@ module ApplicationHelper
       f.response :json
     end
 
-    response = foursquare_response.get("search/?", client_id: ENV['FOURSQUARE_ID'], client_secret: ENV['FOURSQUARE_SECRET'], near: near, query: query, categoryId: category, v: 20181202)
+    response = foursquare_response.get("search/?", client_id: ENV['FOURSQUARE_ID'], client_secret: ENV['FOURSQUARE_SECRET'], near: near, categoryId: category, v: 20181202)
     body = response.body
     venues = body["response"]["venues"]
     venues_details = []
