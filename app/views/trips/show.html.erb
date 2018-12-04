@@ -3,7 +3,7 @@
   <div class="container">
     <div class="trip-overview-title">
       <div class="dynamic-title">
-        <h1><%= @trip.end_day.day - @trip.start_day.day %> days in <%= @trip.city.capitalize %></h1>
+        <h1><%= (@trip.end_day - @trip.start_day).to_i %> days in <%= @trip.city.capitalize %></h1>
       </div>
       <div class="dynamic-date-subtitle">
         <h4><%= @trip.start_day.strftime('%b %d') %> - <%= @trip.end_day.strftime('%b %d, %Y') %></h4>
