@@ -1,4 +1,3 @@
-
   const navbar = document.querySelector('.navbar-wagon');
   console.log('hello');
 
