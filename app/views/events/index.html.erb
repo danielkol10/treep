@@ -1,0 +1,23 @@
+<div class="image-wrapper" style="background-image:
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(https://res.cloudinary.com/druzius/image/upload/v1543782088/fre-sonneveld-315-unsplash.jpg);">
+
+<div class="container">
+  <div class="show-category-title">
+    <h2>What type of events are you looking to attend during your trip?</h2>
+  </div>
+  <div class="show-category-card-sect">
+    <div class="row">
+      <% @eventbrite_categories.each do |cat| %>
+      <%= link_to new_trip_event_path(@trip, categories: cat.name_slug) do %>
+      <div class="col-xs-12 col-lg-6">
+        <div class="show-category-card">
+          <div class="show-category-card-image">
+            <div class="show-category-card-caption"><%= cat.name %></div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

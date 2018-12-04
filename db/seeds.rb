@@ -4,6 +4,7 @@ Event.destroy_all
 Trip.destroy_all
 User.destroy_all
 
+
 # foursquare_category = {
 #   "food" => "https://res.cloudinary.com/druzius/image/upload/v1543755687/pooja-chaudhary-633059-unsplash.jpg",
 #   "night" => "https://res.cloudinary.com/druzius/image/upload/v1543755688/alexander-popov-522100-unsplash.jpg",
@@ -57,20 +58,6 @@ foursquare_category = {
 foursquare_category.each do |category, id|
   FoursquareCategory.create!(name: category, category_id: id)
 end
-
-# "burger", "asian", "french", 'Italian', Middle Eastern Restaurant
-# food_sub_categories = ['4bf58dd8d48988d16c941735', '4bf58dd8d48988d142941735', '4bf58dd8d48988d10c941735', '4bf58dd8d48988d110941735', '4bf58dd8d48988d115941735']
-
-# pub, nightclub, other nightlife, nightmarket, brewery
-# night_sub_categories = ['4bf58dd8d48988d11b941735', '4bf58dd8d48988d11f941735', '4bf58dd8d48988d11a941735', '53e510b7498ebcb1801b55d4', '50327c8591d4c4b30a586d5d']
-
-# art_gallery, historic_site, street_art, theater
-# arts_sub_categories = ['4bf58dd8d48988d1e2931735', '4deefb944765f83613cdba6e', '52e81612bcbc57f1066b79ee', '4bf58dd8d48988d137941735']
-
-# national_parks, trail, gym, forest, scenic_lookout
-#outdoors_fitness = ['52e81612bcbc57f1066b7a21', '4bf58dd8d48988d159941735', '4bf58dd8d48988d176941735', '52e81612bcbc57f1066b7a23', '4bf58dd8d48988d165941735']
-
-# pet_cafe = '56aa371be4b08b9a8d573508'
 
 10.times do
   user = User.new(
