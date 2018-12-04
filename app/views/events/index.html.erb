@@ -10,14 +10,14 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   <div class="show-category-card-sect">
     <div class="row">
       <% i = 0 %>
-      <% @foursquare_main_categories.each do |cat| %>
+      <% @eventbrite_main_categories.each do |cat| %>
       <div class="col-xs-12 col-lg-4">
         <div class="show-category-card">
           <div class="show-category-card-image">
             <div class="show-category-card-caption"><%= cat %></div>
           </div>
           <%= simple_form_for :sub_category, url: trip_events_path(@trip), method: :post do |f| %>
-          <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories[i..i+3]%>
+          <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
           <div class="submit-category-button">
             <%= f.submit "Submit", class: "btn home-button" %>
           </div>
