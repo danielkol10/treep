@@ -20,7 +20,7 @@ class VenuesController < ApplicationController
         @result = foursquare_api(FoursquareCategory.find(category).category_id, @location)
         if !@result.nil?
           @result.first(2).each do |venue|
-            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id)
+            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id, img_url: Venue::FOURSQUARE_CATEGORY_IMAGES[venue[:category_id]])
             @venue.save
           end
         end
