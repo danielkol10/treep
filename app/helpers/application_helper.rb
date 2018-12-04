@@ -11,6 +11,7 @@ module ApplicationHelper
     venues = body["response"]["venues"]
     venues_details = []
     venues.each do |venue|
+      raise
       venues_details << { name: venue["name"], address: venue["location"]["address"] }
     end
 
