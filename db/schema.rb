@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_114257) do
     t.string "name"
     t.string "img_url"
     t.string "category_id"
-    t.string "sub_categories", default: [], array: true
   end
 
   create_table "trips", force: :cascade do |t|

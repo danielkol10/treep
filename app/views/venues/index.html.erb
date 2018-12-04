@@ -1,35 +1,40 @@
-
 <div class="bg-image-wrapper" style="background-image:
 linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
-<div class="container">
-  <div class="show-category-title">
-    <div class="title-bg">
-      <h2>You are traveling to <%= @trip.city.capitalize %> !</h2>
-      <h4>Choose Your Preferences From Each category</h4>
-    </div>
-  </div>
-  <div class="show-category-card-sect">
-    <div class="row">
-      <% i = 0 %>
-      <% @foursquare_main_categories.each do |cat| %>
-      <div class="col-xs-12 col-lg-4">
-        <div class="show-category-card">
-          <div class="show-category-card-image">
-            <div class="show-category-card-caption"><%= cat %></div>
-          </div>
-          <%= simple_form_for :sub_category, url: trip_venues_path(@trip), method: :post do |f| %>
-          <%= f.input :choices, as: :check_boxes, collection: @foursquare_sub_categories[i..i+3]%>
-          <div class="submit-category-button">
-            <%= f.submit "Submit", class: "btn home-button" %>
-          </div>
-          <% end %>
-        </div>
+  <div class="container">
+    <div class="show-category-title">
+      <div class="title-bg text-center">
+        <h2>Explore Venues In <%= @trip.city.capitalize %> !</h2>
+        <h4>Choose Your Preferences From Each Category</h4>
       </div>
-      <% i = i+4 %>
-      <% end %>
+    </div>
+    <div class="show-category-card-sect">
+      <div class="row">
+        <% i = 0 %>
+        <% @foursquare_main_categories.each_with_index do |cat, index| %>
+          <div class="col-xs-12 col-lg-3">
+            <div class="menu-button show-category-card">
+              <div class="show-category-card-image">
+                <%= cl_image_tag(Venue::VENUE_CARD_IMAGES[index]) %>
+                <div class="show-category-card-caption"><%= cat %></div>
+              </div>
+              <div class="menu hide-start">
+                <%= simple_form_for :sub_category, url: trip_venues_path(@trip), method: :post do |f| %>
+                  <%= f.input :choices, as: :check_boxes, collection: @foursquare_sub_categories[i..i+3]%>
+                  <%=  %>
+                  <div class="submit-category-button">
+                    <%= f.submit "Submit", class: "btn home-button" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% i = i+4 %>
+        <% end %>
+      </div>
     </div>
   </div>
   <%= link_to trip_events_path do %>
   <i class='btn home-button'></i>
   <% end %>
 </div>
+

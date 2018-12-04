@@ -19,7 +19,6 @@
   margin: 15px 0;
 }
 .show-category-card-image {
-  height: 200px;
   width: 100%;
   background: #272727;
   position: relative;
@@ -69,4 +68,13 @@
   letter-spacing: 4px;
   font-weight: normal;
   line-height: 1.7rem;
+}
+
+
+.menu-button:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+.hide-start {
+  display: none;
 }

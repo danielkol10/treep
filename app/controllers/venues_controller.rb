@@ -2,9 +2,9 @@ class VenuesController < ApplicationController
   include ApplicationHelper
 
   def index
-   @trip = Trip.find(params[:trip_id])
-   @foursquare_sub_categories = FoursquareCategory.all
-   @foursquare_main_categories = ["Food","Nightlife","culture","outdoors"]
+    @trip = Trip.find(params[:trip_id])
+    @foursquare_sub_categories = FoursquareCategory.all
+    @foursquare_main_categories = ["Food", "Nightlife", "culture", "outdoors"]
   end
 
   def new
@@ -14,7 +14,6 @@ class VenuesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @location = @trip.city
     @price = 2
-
     if !params["sub_category"]["choices"].drop(1).nil?
       @chosen_categories = params["sub_category"]["choices"].drop(1)
       @chosen_categories.each do |category|

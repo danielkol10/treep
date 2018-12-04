@@ -22,6 +22,8 @@ gem 'foursquare2'
 gem 'date'
 gem "geocoder"
 gem "faraday"
+gem 'cloudinary'
+
 
 gem 'acts-as-taggable-on', '~> 6.0'
 

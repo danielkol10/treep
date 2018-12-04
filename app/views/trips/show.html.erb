@@ -1,12 +1,40 @@
+<<<<<<< HEAD
+<div class="bg-image-wrapper" style="background-image:
+linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
+  <div class="container">
+    <div class="show-category-title">
+      <div class="title-bg">
+        <h2>You are traveling to <%= @trip.city.capitalize %> !</h2>
+        <h4>Check the below boxes in order to customize your trip</h4>
+      </div>
+    </div>
+    <div class="show-category-card-sect">
+      <div class="row">
+        <% @foursquare_categories.each do |cat| %>
+          <%= link_to new_trip_venue_path(@trip, section: cat.category_id) do  %>
+            <div class="col-xs-12 col-lg-4">
+              <div class="show-category-card">
+                <div class="show-category-card-image">
+                  <div class="show-category-card-caption"><%= cat.name %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+=======
 
 <div class="trip-overview-header">
   <div class="container">
     <div class="trip-overview-title">
       <div class="dynamic-title">
-        <h1>5 days in Berlin</h1>
+        <h1><%= (@trip.end_day - @trip.start_day).to_i %> days in <%= @trip.city.capitalize %></h1>
       </div>
       <div class="dynamic-date-subtitle">
-        <h4>Dec 14 - Dec 19, 2018</h4>
+        <h4><%= @trip.start_day.strftime('%b %d') %> - <%= @trip.end_day.strftime('%b %d, %Y') %></h4>
       </div>
 
       </div>
@@ -16,18 +44,28 @@
 <div class="trip-content-wrapper">
   <div class="container">
     <div class="row">
+
+      <% if @trip.venues.empty? %>
+      <h2>No results found.</h2>
+      <% else %>
+      <% @trip.venues.each do |venue| %>
       <div class="trip-content">
 
-          <div class="trip-card-title"><h3>Staring Contest</h3></div>
-          <div class="trip-card-image">
-            <img src='https://res.cloudinary.com/druzius/image/upload/v1543862679/staring-contest.jpg'>
-          </div>
-          <div class="trip-card-address"><h5>Address: Schwaffelstrasse 22</h5></div>
-          <div class="trip-card-description">
-            <p>A staring contest is a game in which two people stare into each other's eyes and attempt to maintain eye contact for a longer period than their opponent can. The game ends when one participant looks away or smiles.</p>
-          </div>
-          <a href="#top" class="trip-card-button btn home-button">Do something</a>
+        <div class="trip-card-title"><h3><%= venue.name %></h3></div>
+        <div class="trip-card-image">
+          <img src='https://res.cloudinary.com/druzius/image/upload/v1543769209/timon-klauser-308449-unsplash.jpg'>
+        </div>
+        <div class="trip-card-address"><h5>Address: <%= venue.location %></h5></div>
+        <div class="trip-card-description">
+          <p><%# venue.description %>A staring contest is a game in which two people stare into each other's eyes and attempt to maintain eye contact for a longer period than their opponent can. The game ends when one participant looks away or smiles.</p>
+        </div>
+        <a href="#top" class="trip-card-button btn home-button">Do something</a>
+
       </div>
+      <% end %>
+      <% end %>
+
     </div>
   </div>
 </div>
+>>>>>>> master
