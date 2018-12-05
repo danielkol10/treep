@@ -1,10 +1,9 @@
-console.log("test")
     const buttons = document.querySelectorAll('.menu-button');
     console.log(buttons);
     let menus = document.querySelectorAll('.menu');
 
     console.log(menus);
-    let submit = document.querySelector("#submit-button");
+    let submit = document.querySelectorAll(".submit-venue-category");
 
     buttons.forEach((button) => {
     button.addEventListener('click', function (event) {
@@ -15,11 +14,14 @@ console.log("test")
     );
     });
 
-    submit.addEventListener('click', function (event) {
+      submit.forEach((sub) => {
+        submit.addEventListener('click', function (event) {
+      console.log(event);
       if (menu.style.display == "") {
         menu.style.display = "none";
       } else {
         menu.style.display = "";
       }
+      })
     });
 // button.disabled=true
