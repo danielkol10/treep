@@ -14,55 +14,8 @@
 
 <div class="trip-content-wrapper">
   <div class="container">
-    <div class="row">
 
-      <% if @trip.venues.empty? %>
-      <h2>No results selected.</h2>
-      <% else %>
-      <% @trip.venues.each do |venue| %>
-      <div class="col-xs-12 col-sm-12">
-        <div class="trip-content">
 
-          <div class="trip-card-title"><h3><%= venue.name %></h3></div>
-          <div class="trip-card-image">
-            <img src= <%= venue.img_url %> >
-          </div>
-          <div class="trip-card-address"><h5>Address: <%= venue.location %></h5></div>
-          <div class="trip-card-description">
-            <p><%# venue.description %>A staring contest is a game in which two people stare into each other's eyes and attempt to maintain eye contact for a longer period than their opponent can. The game ends when one participant looks away or smiles.</p>
-          </div>
-          <a href="#top" class="trip-card-button btn home-button">Do something</a>
-
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-
-      <% if @trip.events.empty? %>
-      <h2>No events selected.</h2>
-      <% else %>
-      <% @trip.events.each do |event| %>
-      <div class="col-xs-12 col-sm-12">
-        <div class="trip-content">
-
-          <div class="trip-card-title"><h3><%= event.name %></h3></div>
-          <div class="trip-card-image">
-            <img src='https://res.cloudinary.com/druzius/image/upload/v1543933434/business.jpg'>
-          </div>
-          <div class="trip-card-address"><h5>Address: <%= event.location %></h5></div>
-          <div class="trip-card-description">
-            <p><%# venue.description %>A staring contest is a game in which two people stare into each other's eyes and attempt to maintain eye contact for a longer period than their opponent can. The game ends when one participant looks away or smiles.</p>
-          </div>
-          <a href="#top" class="trip-card-button btn home-button">Do something</a>
-
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-   </div>
-<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-<!-- ||||||||||||||     TIME LINE TRY OUT     ||||||||||||||||||||||||| -->
-<!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
 
 
@@ -71,9 +24,11 @@
     <% @trip.venues.each do |venue| %>
       <li>
 
-        <div class="timeline-card" style="background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= venue.img_url %>);">
-        <%= venue.name %> <%= venue.location %>
-
+        <div class="timeline-card">
+        <span> <a href="#top" class="timeline-card-title btn home-button"> <%= venue.name %> </a></span>
+          <span class="timeline-card-image">
+            <img src= <%= venue.img_url %> >
+          </span>
         </div>
       </li>
     <% end %>

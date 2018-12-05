@@ -18,58 +18,7 @@
   margin-top: 40px;
 }
 
-.trip-content {
-  position: relative;
-  height: 350px;
-  border: 1px solid $dark-green;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-  margin-bottom: 20px;
-}
 
-.trip-card-title {
-  position: absolute;
-  left: 15px;
-  width: 50%;
-}
-
-.trip-card-image {
-  position: absolute;
-  left: 15px;
-  bottom: 15px;
-  border: 1px solid $dark-green;
-}
-
-.trip-card-image img {
-  height: 200px;
-  padding: 6px;
-}
-
-.trip-card-address {
-  position: absolute;
-  top: 25px;
-  right: 75px;
-  width: 40%;
-}
-
-.trip-card-description {
-  position: absolute;
-  top: 125px;
-  right: 75px;
-  width: 40%;
-}
-
-.trip-card-button {
-  position: absolute;
-  right: 308px;
-  bottom: 15px;
-  width: 20%;
-}
-
-/* --------------------------------
-
-TIMELINE TRY OUT
-
--------------------------------- */
 
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -138,16 +87,39 @@ TIMELINE TRY OUT
 }
 
 .timeline-card {
-  height: 200px;
-
+  position: relative;
+  height: 245px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   border: 1px solid $dark-green;
 }
 
 .timeline-card-title {
   position: absolute;
+  height: 50px;
+  width: 262px;
+
+  top: 5px;
+  left: 5px;
+  right: 5px;
 
 }
 
+.timeline-card-image {
+  position: absolute;
+
+  width: auto;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
+
+
+}
+
+.timeline-card-image img {
+  height: 175px;
+  border-radius: 4px;
+
+}
 
 
 /* EFFECTS
