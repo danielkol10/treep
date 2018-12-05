@@ -44,7 +44,14 @@
 
 
         <div class="timeline-card" >
-        <%= event.name %>
+        <span class="timeline-card-title"><h5> <%= event.name %> </h5></span>
+          <span class="timeline-card-image">
+            <img src= <%= event.img_url %> >
+          </span>
+          <span class="timeline-card-info">
+            <span class="timeline-card-time"> Starts:<br><strong><%= event.event_start.strftime('%b %d, %H:%M') %></strong> <br><br>Ends:<br> <strong><%= event.event_end.strftime('%b %d, %H:%M') %></strong></span>
+
+          </span>
 
 
         </div>
