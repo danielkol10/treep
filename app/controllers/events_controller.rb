@@ -24,7 +24,6 @@ class EventsController < ApplicationController
 
         if !@result.nil?
           @result.first(2).each do |event|
-            raise
             @event = Event.new(name: event[:name], latitude: event[:latitude], longitude: event[:longitude], event_start: event[:event_start], event_end: event[:event_end], trip_id: @trip.id, img_url: Event::EVENTBRITE_SUB_CATEGORY_IMAGES[event[:sub_category]])
             @event.save
           end
