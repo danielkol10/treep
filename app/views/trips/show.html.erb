@@ -13,38 +13,28 @@
 </div>
 <div class="trip-content-wrapper">
   <div class="container">
-
-<section class="timeline">
-  <ul>
-    <% @trip.venues.each do |venue| %>
-      <li>
-
-        <div class="timeline-card">
-        <span> <a href="#top" class="timeline-card-title btn home-button"> <%= venue.name %> </a></span>
-          <span class="timeline-card-image">
-            <img src= <%= venue.img_url %> >
-          </span>
-        </div>
-      </li>
-    <% end %>
-
-    <% @trip.events.each do |event| %>
-      <li>
-
-
-        <div class="timeline-card" >
-        <%= event.name %>
-
-
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
-
-
-
+    <div class="row">
+      <% if @trip.venues.empty? %>
+        <h2>No results found.</h2>
+      <% else %>
+        <% @trip.venues.each do |venue| %>
+          <div class="trip-content">
+            <div class="trip-card-title">
+              <h3><%= venue.name %></h3>
+            </div>
+            <div class="trip-card-image">
+              <img src='https://res.cloudinary.com/druzius/image/upload/v1543769209/timon-klauser-308449-unsplash.jpg'>
+            </div>
+            <div class="trip-card-address">
+              <h5>Address: <%= venue.location %></h5>
+            </div>
+            <div class="trip-card-description">
+              <p><%# venue.description %>A staring contest is a game in which two people stare into each other's eyes and attempt to maintain eye contact for a longer period than their opponent can. The game ends when one participant looks away or smiles.</p>
+            </div>
+            <a href="#top" class="trip-card-button btn home-button">Do something</a>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
