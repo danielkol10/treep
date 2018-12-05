@@ -16,11 +16,11 @@ class Venue < ApplicationRecord
   "4bf58dd8d48988d1e2931735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543929999/art-gallery.jpg",
   "4deefb944765f83613cdba6e" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1563/v1543929999/historic-site.jpg",
   "52e81612bcbc57f1066b79ee" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1674/v1543769209/timon-klauser-308449-unsplash.jpg",
-  "4bf58dd8d48988d137941735" => "https://res.cloudinary.com/druzius/image/upload/v1543930951/theater.jpg",
-  "52e81612bcbc57f1066b7a21" => "https://res.cloudinary.com/druzius/image/upload/v1543930953/national-parks.jpg",
-  "4bf58dd8d48988d159941735" => "https://res.cloudinary.com/druzius/image/upload/v1543930952/trail.jpg",
-  "4bf58dd8d48988d176941735" => "https://res.cloudinary.com/druzius/image/upload/v1543930952/gym.jpg",
-  "4bf58dd8d48988d165941735" => "https://res.cloudinary.com/druzius/image/upload/v1543930950/scenic-lookout.jpg"
+  "4bf58dd8d48988d137941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1491/v1543930951/theater.jpg",
+  "52e81612bcbc57f1066b7a21" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1780/v1543930953/national-parks.jpg",
+  "4bf58dd8d48988d159941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1505/v1543930952/trail.jpg",
+  "4bf58dd8d48988d176941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543930952/gym.jpg",
+  "4bf58dd8d48988d165941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1545/v1543930950/scenic-lookout.jpg"
   }
   belongs_to :trip
 end
