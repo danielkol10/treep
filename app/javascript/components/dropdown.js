@@ -1,4 +1,4 @@
-    const bigButtons = document.querySelectorAll('.menu-button');
+function dropdown() { const bigButtons = document.querySelectorAll('.menu-button');
     const row_of_menus = document.querySelector('.row');
     let first_menu = row_of_menus.firstElementChild;
     first_menu= first_menu.querySelector('.menu');
@@ -38,4 +38,5 @@
         current_menu.classList.add('hide-start');
       })
     })
-
+  }
+  export { dropdown };
