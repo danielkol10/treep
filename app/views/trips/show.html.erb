@@ -59,82 +59,41 @@
       </div>
       <% end %>
       <% end %>
-
+   </div>
 <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 <!-- ||||||||||||||     TIME LINE TRY OUT     ||||||||||||||||||||||||| -->
 <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
 
 
-      <section class="timeline">
+<section class="timeline">
   <ul>
+    <% @trip.venues.each do |venue| %>
+      <li>
 
-    <li>
-      <div class="timeline-card">
-         At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-      </div>
-    </li>
+        <div class="timeline-card" style="background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= venue.img_url %>);">
+        <%= venue.name %> <%= venue.location %>
 
-    <li>
-      <div>
-         Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
-      </div>
-    </li>
-    <li>
-      <div>
-        Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
-      </div>
-    </li>
-    <li>
-      <div>
-         In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-         In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-         In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-         Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus, euismod quis ante.
-      </div>
-    </li>
-    <li>
-      <div>
-         Vestibulum porttitor lorem sed pharetra dignissim. Nulla maximus, dui a tristique iaculis, quam dolor convallis enim, non dignissim ligula ipsum a turpis.
-      </div>
-    </li>
-    <li>
-      <div>
-        In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-         In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-         In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat mattis. Vestibulum id magna est.
-      </div>
-    </li>
+        </div>
+      </li>
+    <% end %>
+
+    <% @trip.events.each do |event| %>
+      <li>
+
+
+        <div class="timeline-card" >
+        <%= event.name %>
+
+
+        </div>
+      </li>
+    <% end %>
   </ul>
 </section>
 
 
-    </div>
+
   </div>
 </div>
 
