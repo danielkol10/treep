@@ -20,11 +20,11 @@ class EventsController < ApplicationController
       if !params["sub_category"]["choices"].drop(1).nil?
       @chosen_categories = params["sub_category"]["choices"].drop(1)
       @chosen_categories.each do |category, values|
-        @result = eventbrite_api(@latitude, @longitude, @formatted_start, @formatted_end, @eventbrite_sub_categories[category][0], @eventbrite_sub_categories[category][1] )
+        @result = eventbrite_api(@latitude, @longitude, @formatted_start, @formatted_end, @eventbrite_sub_categories[category][0], @eventbrite_sub_categories[category][1])
 
         if !@result.nil?
           @result.first(2).each do |event|
-            @event = Event.new(name: event[:name], latitude: event[:latitude], longitude: event[:longitude], event_start: event[:event_start], event_end: event[:event_end], trip_id: @trip.id)
+            @event = Event.new(name: event[:name], latitude: event[:latitude], longitude: event[:longitude], event_start: event[:event_start], event_end: event[:event_end], trip_id: @trip.id, img_url: Event::EVENTBRITE_SUB_CATEGORY_IMAGES[event[:sub_category]])
             @event.save
           end
         end

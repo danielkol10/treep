@@ -34,3 +34,4 @@
         current_menu.classList.add('hide-start');
       })
     })
+

@@ -1,2 +1,28 @@
-@import "show";
+.trip-index-content {
+  width: 100%;
+  border: 1px solid black;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+
+.trip-card-index-image {
+  background: url('https://res.cloudinary.com/druzius/image/upload/v1543769209/timon-klauser-308449-unsplash.jpg');
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+
+.trip-card-index-title {
+  left: 15px;
+  width: 50%;
+}
+
+.trip-card-index-button {
+  width: 40%;
+}
 
