@@ -1,7 +1,4 @@
 import "bootstrap";
-import { timeLine } from '../components/timeline';
-timeLine();
-
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
 import "../plugins/flatpickr"
