@@ -1,27 +1,36 @@
-    const buttons = document.querySelectorAll('.menu-button');
-    let menus = document.querySelectorAll('.menu');
+    const bigButtons = document.querySelectorAll('.menu-button');
 
-    let submit = document.querySelectorAll(".submit-venue-category");
-
-    buttons.forEach((button) => {
-      button.addEventListener('click', function(event) {
-        let menu = button.nextElementSibling;
+    bigButtons.forEach((bigButton) => {
+      bigButton.addEventListener('click', function(event) {
+        let menu = bigButton.nextElementSibling;
         menu.classList.toggle("hide-start");
+
+        menu.addEventListener("click", function(event){
+          // console.log("bigButton baby");
+          // console.log(bigButton.parentNode);
+          // console.log(bigButton.parentNode.parentNode.nextElementSibling.firstElementChild);
+          let next_guy = bigButton.parentNode.parentNode.nextElementSibling.firstElementChild;
+          let next_menu = next_guy.querySelector('.menu');
+          next_menu.classList.remove('hide-start');
+          menu.classList.add('hide-start');
+        })
       }
       );
     });
 
+    let submits = document.querySelectorAll(".submit-venue-category");
+    submits.forEach((submit) => {
+      submit.addEventListener('click', function(event){
 
-    const allSubmitButtons = document.querySelectorAll('.submit-category-button');
-    console.log(buttons.value);
-    console.log(submit.value);
-    allSubmitButtons.forEach((button) => {
-      button.addEventListener('click', function(event) {
-        menus.forEach((menu) => {
-          if (button.value === submit.value) {
-          menu.classList.add("hide-start");
-          }
-        });
-      });
-    });
+        // console.log(submit.parentNode.parentNode.nextElementSibling.firstElementChild);
+        console.log("small button, size doesn't matter");
+        // console.log(submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild);
+        let next_guy = submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild;
+        let next_menu = next_guy.querySelector('.menu');
+        next_menu.classList.remove('hide-start');
 
+        console.log(submit.parentNode.parentNode.parentNode);
+        let current_menu = submit.parentNode.parentNode.parentNode;
+        current_menu.classList.add('hide-start');
+      })
+    })
