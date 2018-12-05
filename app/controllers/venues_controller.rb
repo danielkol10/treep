@@ -27,6 +27,9 @@ class VenuesController < ApplicationController
         end
       end
     end
-    redirect_to trip_venues_path
+    respond_to do |format|
+      format.html { redirect_to trip_venues_path }
+      format.js
+    end
   end
 end
