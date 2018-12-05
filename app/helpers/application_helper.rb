@@ -42,7 +42,7 @@ module ApplicationHelper
     events = response.body["events"]
     events_details = []
     events.each do |event|
-      events_details << { name: event["name"]["text"], latitude: event["venue"]["latitude"], longitude: event["venue"]["longitude"], event_start: event["start"]["local"],event_end: event["end"]["local"] }
+      events_details << { name: event["name"]["text"], latitude: event["venue"]["latitude"], longitude: event["venue"]["longitude"], event_start: event["start"]["local"], event_end: event["end"]["local"], sub_category: event["subcategory_id"] }
     end
     return events_details
   end
