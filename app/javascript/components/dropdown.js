@@ -14,14 +14,12 @@
     );
     });
 
-      submit.forEach((sub) => {
-        sub.addEventListener('click', function (event) {
-      console.log(event);
-      // if (menu.style.display == "") {
-      //   menu.style.display = "none";
-      // } else {
-      //   menu.style.display = "";
-      // }
-      })
-    });
+
+    // submit.addEventListener('click', function (event) {
+    //   if (menu.style.display == "") {
+    //     menu.style.display = "none";
+    //   } else {
+    //     menu.style.display = "";
+    //   }
+    // });
 // button.disabled=true
