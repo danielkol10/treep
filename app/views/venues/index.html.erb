@@ -12,13 +12,13 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
         <% i = 0 %>
         <% @foursquare_main_categories.each_with_index do |cat, index| %>
           <div class="col-xs-12 col-lg-3">
-            <div class="menu-button show-category-card">
-              <div class="show-category-card-image">
+            <div class="show-category-card">
+              <div class="menu-button show-category-card-image" data-step="<%= index %>">
                 <%= cl_image_tag(Venue::VENUE_CARD_IMAGES[index]) %>
                 <div class="show-category-card-caption"><%= cat %></div>
               </div>
-              <div class="menu hide-start">
-                <%= simple_form_for :sub_category,remote: true, url: trip_venues_path(@trip), method: :post do |f| %>
+              <div class="menu hide-start" data-menu="<%= index %>">
+                <%= simple_form_for :sub_category, remote: true, url: trip_venues_path(@trip), method: :post do |f| %>
                   <%= f.input :choices, as: :check_boxes, collection: @foursquare_sub_categories[i..i+3]%>
                   <%=  %>
                   <div class="submit-category-button">
@@ -37,3 +37,22 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
     <i class='btn home-button'></i>
   <% end %>
 </div>
+<script>
+  function testo() {
+  const allCards = document.querySelectorAll('.submit-category-button');
+  console.log(allCards)
+  allCards.forEach((card) => {
+    console.log("addEventListener");
+    card.addEventListener('click', toggleNext(card));
+    });
+  }
+  
+  testo();
+  
+  
+  function toggleNext(card) {
+    debugger
+    const step = card.parentElement.querySelector(".menu-button").dataset.step;
+    console.log(step);
+  }
+</script>

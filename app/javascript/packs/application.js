@@ -4,5 +4,4 @@ loadDynamicBannerText();
 import "../plugins/flatpickr"
 import { activeChoice } from '../components/category_choice';
 import  '../components/navbar';
-
 import '../components/dropdown';
