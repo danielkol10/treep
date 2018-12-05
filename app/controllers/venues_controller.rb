@@ -1,6 +1,5 @@
 class VenuesController < ApplicationController
   include ApplicationHelper
-
   def index
     @trip = Trip.find(params[:trip_id])
     @foursquare_sub_categories = FoursquareCategory.all
@@ -20,7 +19,8 @@ class VenuesController < ApplicationController
         @result = foursquare_api(FoursquareCategory.find(category).category_id, @location)
         if !@result.nil?
           @result.first(2).each do |venue|
-            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id)
+            details = venue_details_api(venue[:venue_id])
+            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id, description: details[:description], facebook: details[:facebook], phone: details[:phone], instagram: details[:instagram], category_tag: details[:category_tag], price_tier: details[:price_tier], likes: details[:likes], rating: details[:rating])
             @venue.save
           end
         end

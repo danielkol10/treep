@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_114257) do
+ActiveRecord::Schema.define(version: 2018_12_05_094900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_114257) do
     t.string "name"
     t.string "img_url"
     t.string "category_id"
+    t.string "sub_categories", default: [], array: true
   end
 
   create_table "trips", force: :cascade do |t|
@@ -76,6 +77,16 @@ ActiveRecord::Schema.define(version: 2018_12_04_114257) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
+    t.string "img_url"
+    t.string "facebook"
+    t.string "phone"
+    t.string "instagram"
+    t.string "category_tag"
+    t.string "web_url"
+    t.string "price_tier"
+    t.string "likes"
+    t.string "rating"
+    t.string "days_hours", default: [], array: true
     t.index ["trip_id"], name: "index_venues_on_trip_id"
   end
 
