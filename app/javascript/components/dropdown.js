@@ -14,12 +14,5 @@ console.log("test")
     }
     );
     });
+  }
 
-    // submit.addEventListener('click', function (event) {
-    //   if (menu.style.display == "") {
-    //     menu.style.display = "none";
-    //   } else {
-    //     menu.style.display = "";
-    //   }
-    // });
-// button.disabled=true
