@@ -22,5 +22,7 @@ class Venue < ApplicationRecord
   "4bf58dd8d48988d176941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543930952/gym.jpg",
   "4bf58dd8d48988d165941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1545/v1543930950/scenic-lookout.jpg"
   }
+
+  GENERIC_VENUE_IMAGE = "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1675/v1544037459/camera-destination-finger-7979.jpg"
   belongs_to :trip
 end
