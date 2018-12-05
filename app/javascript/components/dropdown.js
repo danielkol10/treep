@@ -14,10 +14,7 @@ console.log("test")
     );
     });
 
-
-
     let submit = document.querySelector(".submit-button");
     submit.addEventListener('click', function(event) {
-      console.log("yay do the thing")
     });
 // button.disabled=true
