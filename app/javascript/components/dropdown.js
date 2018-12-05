@@ -15,13 +15,13 @@
     });
 
       submit.forEach((sub) => {
-        submit.addEventListener('click', function (event) {
+        sub.addEventListener('click', function (event) {
       console.log(event);
-      if (menu.style.display == "") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "";
-      }
+      // if (menu.style.display == "") {
+      //   menu.style.display = "none";
+      // } else {
+      //   menu.style.display = "";
+      // }
       })
     });
 // button.disabled=true
