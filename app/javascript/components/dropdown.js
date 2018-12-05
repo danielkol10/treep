@@ -1,11 +1,15 @@
     const bigButtons = document.querySelectorAll('.menu-button');
+    const row_of_menus = document.querySelector('.row');
+    let first_menu = row_of_menus.firstElementChild;
+    first_menu= first_menu.querySelector('.menu');
+    first_menu.classList.remove('hide-start');
 
     bigButtons.forEach((bigButton) => {
       bigButton.addEventListener('click', function(event) {
         let menu = bigButton.nextElementSibling;
         menu.classList.toggle("hide-start");
-
-        menu.addEventListener("click", function(event){
+        let submit = menu.querySelector('.submit-venue-category');
+        submit.addEventListener("click", function(event){
           // console.log("bigButton baby");
           // console.log(bigButton.parentNode);
           // console.log(bigButton.parentNode.parentNode.nextElementSibling.firstElementChild);

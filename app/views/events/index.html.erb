@@ -9,7 +9,6 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   </div>
   <div class="show-category-card-sect">
     <div class="row">
-      <% i = 0 %>
       <% @eventbrite_main_categories.each do |cat| %>
       <div class="col-xs-12 col-lg-4">
         <div class="show-category-card">
@@ -24,7 +23,6 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
           <% end %>
         </div>
       </div>
-      <% i = i+4 %>
       <% end %>
     </div>
   </div>
