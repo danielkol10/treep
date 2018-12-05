@@ -5,22 +5,22 @@ Trip.destroy_all
 User.destroy_all
 
 foursquare_category = {
-  "burger" => "4bf58dd8d48988d16c941735",
-  "asian" => "4bf58dd8d48988d142941735",
-  "middle_eastern" => "4bf58dd8d48988d115941735",
-  "italian" => "4bf58dd8d48988d110941735",
-  "pub" => "4bf58dd8d48988d11b941735",
-  "nightclub" => "4bf58dd8d48988d11f941735",
-  "other_nightlife" => "4bf58dd8d48988d11a941735",
-  "nightmarket" => "53e510b7498ebcb1801b55d4",
-  "art_gallery" => "4bf58dd8d48988d1e2931735",
-  "historic_site" => "4deefb944765f83613cdba6e",
-  "street_art" => "52e81612bcbc57f1066b79ee",
-  "theater" => "4bf58dd8d48988d137941735",
-  "national_parks" => "52e81612bcbc57f1066b7a21",
-  "trail" => "4bf58dd8d48988d159941735",
-  "gym" => "4bf58dd8d48988d176941735",
-  "scenic_lookout" => "4bf58dd8d48988d165941735"
+  "Burgers" => "4bf58dd8d48988d16c941735",
+  "Asian" => "4bf58dd8d48988d145941735",
+  "Middle Eastern" => "58daa1558bbb0b01f18ec1cd",
+  "Italian" => "4bf58dd8d48988d110941735",
+  "Pubs" => "4bf58dd8d48988d11e941735",
+  "Nightclubs" => "4bf58dd8d48988d11f941735",
+  "Karaoke Bars" => "4bf58dd8d48988d120941735",
+  "Night Markets" => "53e510b7498ebcb1801b55d4",
+  "Art Galleries" => "4bf58dd8d48988d1e2931735",
+  "Historic Sites" => "4deefb944765f83613cdba6e",
+  "Street Art" => "52e81612bcbc57f1066b79ee",
+  "Theaters" => "4bf58dd8d48988d137941735",
+  "National Parks" => "52e81612bcbc57f1066b7a21",
+  "Trails" => "4bf58dd8d48988d159941735",
+  "Gyms" => "4bf58dd8d48988d176941735",
+  "Scenic Lookouts" => "4bf58dd8d48988d165941735"
 }
 
 foursquare_category.each do |category, id|
