@@ -21,7 +21,7 @@
 
 <section class="timeline">
   <ul>
-    <% @trip.venues.each do |venue| %>
+    <% @trip.venues.shuffle.each do |venue| %>
       <li>
 
         <div class="timeline-card">
@@ -39,7 +39,9 @@
       </li>
     <% end %>
 
-    <% @trip.events.each do |event| %>
+
+
+    <% @trip.events.shuffle.each do |event| %>
       <li>
 
 
