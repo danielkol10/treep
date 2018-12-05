@@ -4,6 +4,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: [:edit, :destroy, :update, :show]
 
   def index
+    @trips = current_user.trips
   end
 
   def create
