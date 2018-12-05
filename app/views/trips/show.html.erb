@@ -1,3 +1,4 @@
+<% content_for :meta_title, "#{@trip.city}" %>
 <div class="trip-overview-header">
   <div class="container">
     <div class="trip-overview-title">
@@ -7,17 +8,11 @@
       <div class="dynamic-date-subtitle">
         <h4><%= @trip.start_day.strftime('%b %d') %> - <%= @trip.end_day.strftime('%b %d, %Y') %></h4>
       </div>
-
-      </div>
     </div>
   </div>
-
+</div>
 <div class="trip-content-wrapper">
   <div class="container">
-
-
-
-
 
 <section class="timeline">
   <ul>
@@ -51,4 +46,5 @@
 
   </div>
 </div>
+
 
