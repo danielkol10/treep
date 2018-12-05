@@ -17,19 +17,18 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
             <%= cl_image_tag(Event::EVENT_CARD_IMAGES[index]) %>
             <div class="show-category-card-caption"><%= cat %></div>
           </div>
-          <div class="show-category-card">
-            <div class="show-category-card-caption"><p><%= cat %></p></div>
+          <div class="menue hide-start">
             <%= simple_form_for :sub_category, url: trip_events_path(@trip), method: :post do |f| %>
-            <%= f.input , as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
+            <%= f.input "", label: false, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
             <div class="submit-category-button">
               <%= f.submit "Submit", class: "btn home-button" %>
             </div>
             <% end %>
           </div>
         </div>
+      </div>
         <% i = i+4 %>
         <% end %>
-      </div>
     </div>
     <%= link_to trip_path(@trip) do %>
     <i class='btn home-button'>Generate Trip</i>
