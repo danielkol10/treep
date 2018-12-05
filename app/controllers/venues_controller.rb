@@ -20,7 +20,7 @@ class VenuesController < ApplicationController
         if !@result.nil?
           @result.first(2).each do |venue|
             details = venue_details_api(venue[:venue_id])
-            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id, description: details[:description], facebook: details[:facebook], phone: details[:phone], instagram: details[:instagram], category_tag: details[:category_tag], price_tier: details[:price_tier], likes: details[:likes], rating: details[:rating])
+            @venue = Venue.new(name: venue[:name], location: venue[:address], trip_id: @trip.id, img_url: Venue::FOURSQUARE_CATEGORY_IMAGES[venue[:category_id]], description: details[:description], facebook: details[:facebook], phone: details[:phone], instagram: details[:instagram], category_tag: details[:category_tag], price_tier: details[:price_tier], likes: details[:likes], rating: details[:rating])
             @venue.save
           end
         end

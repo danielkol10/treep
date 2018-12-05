@@ -11,7 +11,7 @@ module ApplicationHelper
     venues = body["response"]["venues"]
     venues_details = []
     venues.each do |venue|
-      venues_details << { name: venue["name"], address: venue["location"]["address"], venue_id: venue["id"] }
+      venues_details << { name: venue["name"], address: venue["location"]["address"], category_id: venue["categories"].first["id"], venue_id: venue["id"] }
     end
 
     return venues_details
