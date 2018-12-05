@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 function loadDynamicBannerText() {
   new Typed('#banner-typed-text', {
-    strings: ["The World", "Bhutan",
+    strings: ["Melbourne", "Kathmandu",
      "Cape Town", "Havana",
       "Singapore", "Rome",
        "Paris", "Tel Aviv",

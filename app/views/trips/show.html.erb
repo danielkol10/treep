@@ -21,24 +21,39 @@
 
 <section class="timeline">
   <ul>
-    <% @trip.venues.each do |venue| %>
+    <% @trip.venues.shuffle.each do |venue| %>
       <li>
 
         <div class="timeline-card">
-        <span> <a href="#top" class="timeline-card-title btn home-button"> <%= venue.name %> </a></span>
+        <span class="timeline-card-title"><h5> <%= venue.name %> </h5></span>
           <span class="timeline-card-image">
             <img src= <%= venue.img_url %> >
+          </span>
+          <span class="timeline-card-info">
+            <span class="timeline-card-tag"> <img src='https://res.cloudinary.com/druzius/image/upload/v1544033697/price-tag.svg'> <strong><%= venue.category_tag %></strong> </span>
+            <span class="timeline-card-price"> <img src='https://res.cloudinary.com/druzius/image/upload/v1544034080/dollar-symbol.svg'> <strong><%= venue.price_tier %></strong> </span>
+            <span class="timeline-card-rating"> <img src='https://res.cloudinary.com/druzius/image/upload/v1544032819/star.svg'> <strong><%= venue.rating %></strong> </span>
+            <span class="timeline-card-likes"> <img src='https://res.cloudinary.com/druzius/image/upload/v1544032609/like.svg'> <strong><%= venue.likes %></strong> </span>
           </span>
         </div>
       </li>
     <% end %>
 
-    <% @trip.events.each do |event| %>
+
+
+    <% @trip.events.shuffle.each do |event| %>
       <li>
 
 
         <div class="timeline-card" >
-        <%= event.name %>
+        <span class="timeline-card-title"><h5> <%= event.name %> </h5></span>
+          <span class="timeline-card-image">
+            <img src= <%= event.img_url %> >
+          </span>
+          <span class="timeline-card-info">
+            <span class="timeline-card-time"> Starts:<br><strong><%= event.event_start.strftime('%b %d, %H:%M') %></strong> <br><br>Ends:<br> <strong><%= event.event_end.strftime('%b %d, %H:%M') %></strong></span>
+
+          </span>
 
 
         </div>
