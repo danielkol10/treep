@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_12_04_210928) do
 
   # These are extensions that must be enabled in order to support this database
@@ -78,6 +79,15 @@ ActiveRecord::Schema.define(version: 2018_12_04_210928) do
     t.datetime "updated_at", null: false
     t.string "description"
     t.string "img_url"
+    t.string "facebook"
+    t.string "phone"
+    t.string "instagram"
+    t.string "category_tag"
+    t.string "web_url"
+    t.string "price_tier"
+    t.string "likes"
+    t.string "rating"
+    t.string "days_hours", default: [], array: true
     t.index ["trip_id"], name: "index_venues_on_trip_id"
   end
 
