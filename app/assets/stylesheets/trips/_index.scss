@@ -1,28 +1,73 @@
+.my-trips-header {
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1636/v1543828890/scott-webb-356748-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 50vh;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.my-trips-title {
+  margin-top: 160px;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 1px 0px black;
+}
+
+.my-trips-content-wrapper {
+  background-image: url('https://res.cloudinary.com/druzius/image/upload/v1544086044/grey.png');
+}
+
 .trip-index-content {
-  width: 100%;
+  position: relative;
+  width: 60%;
   border: 1px solid black;
-  height: 300px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin-top: 30px;
+  border: 1px solid $dark-green;
 }
 
 
 .trip-card-index-image {
-  background: url('https://res.cloudinary.com/druzius/image/upload/v1543769209/timon-klauser-308449-unsplash.jpg');
-  height: 200px;
-  width: 100%;
+  position: absolute;
+  background: url('https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1642/v1544090651/aeroplane-air-travel-aircraft-249581.jpg');
+  background-repeat:no-repeat;
+  background-position: bottom center;
   background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .trip-card-index-title {
-  left: 15px;
-  width: 50%;
+  position: absolute;
+  top: 15px;
+  text-align: center;
+  color: black;
 }
 
-.trip-card-index-button {
+.trip-card-index-description {
+  position: absolute;
+  top: 65px;
+  text-align: center;
+  color: black;
+}
+
+.trip-card-index-buttons {
+  position: absolute;
+  top: 115px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 40%;
+}
+
+.fa-whatsapp {
+  color: $dark-green;
+  font-size: 30px;
 }
 
