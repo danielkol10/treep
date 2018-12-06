@@ -2,7 +2,7 @@
 linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
   <div class="container">
     <div class="show-category-title">
-      <div class="title-bg">
+      <div class="title-bg text-center">
         <h2>Explore Events Happening in <%= @trip.city.capitalize %> !</h2>
         <h4>Choose Your Preferences From Each Category</h4>
       </div>
@@ -13,16 +13,18 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
         <% @eventbrite_main_categories.each_with_index do |cat, index| %>
           <div class="col-xs-12 col-lg-3">
             <div class="show-category-card">
-              <div class="show-category-card-image">
+              <div class="menu-button show-category-card-image">
                 <%= cl_image_tag(Event::EVENT_CARD_IMAGES[index]) %>
                 <div class="show-category-card-caption"><%= cat %></div>
               </div>
-              <%= simple_form_for :sub_category, remote: true, url: trip_events_path(@trip), method: :post do |f| %>
-                <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
-                <div class="submit-category-button">
-                  <%= f.submit "Next", class: "btn home-button" %>
-                </div>
-              <% end %>
+              <div class="menu hide-start">
+                <%= simple_form_for :sub_category, remote: true, url: trip_events_path(@trip), method: :post do |f| %>
+                  <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
+                  <div class="submit-category-button">
+                    <%= f.submit "Next", class: "btn home-button submit-venue-category" %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
           <% i = i + 4 %>
@@ -34,3 +36,44 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
     <% end %>
   </div>
 </div>
+<script>
+  const bigButtons = document.querySelectorAll('.menu-button');
+  const row_of_menus = document.querySelector('.row');
+  let first_menu = row_of_menus.firstElementChild;
+  first_menu= first_menu.querySelector('.menu');
+  first_menu.classList.remove('hide-start');
+  
+  bigButtons.forEach((bigButton) => {
+    bigButton.addEventListener('click', function(event) {
+      let menu = bigButton.nextElementSibling;
+      menu.classList.toggle("hide-start");
+      let submit = menu.querySelector('.submit-venue-category');
+      submit.addEventListener("click", function(event){
+        // console.log("bigButton baby");
+        // console.log(bigButton.parentNode);
+        // console.log(bigButton.parentNode.parentNode.nextElementSibling.firstElementChild);
+        let next_guy = bigButton.parentNode.parentNode.nextElementSibling.firstElementChild;
+        let next_menu = next_guy.querySelector('.menu');
+        next_menu.classList.remove('hide-start');
+        menu.classList.add('hide-start');
+      })
+    });
+  });
+  
+  let submits = document.querySelectorAll(".submit-venue-category");
+  submits.forEach((submit) => {
+  submit.addEventListener('click', function(event){
+  
+    // console.log(submit.parentNode.parentNode.nextElementSibling.firstElementChild);
+    console.log("small button, size doesn't matter");
+    // console.log(submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild);
+    let next_guy = submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild;
+    let next_menu = next_guy.querySelector('.menu');
+    next_menu.classList.remove('hide-start');
+  
+    console.log(submit.parentNode.parentNode.parentNode);
+    let current_menu = submit.parentNode.parentNode.parentNode;
+    current_menu.classList.add('hide-start');
+  });
+  });
+</script>
