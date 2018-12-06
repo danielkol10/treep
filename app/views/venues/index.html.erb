@@ -11,7 +11,6 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
       <div class="row">
         <% i = 0 %>
         <% @foursquare_main_categories.each_with_index do |cat, index| %>
-          <% @last =  @foursquare_main_categories.last%>
           <div class="col-xs-12 col-lg-3">
             <div class="show-category-card">
               <div class="menu-button show-category-card-image" value="<%= index %>">
@@ -22,13 +21,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
                 <%= simple_form_for :sub_category, remote: true, url: trip_venues_path(@trip), method: :post do |f| %>
                   <%= f.input :choices, as: :check_boxes, collection: @foursquare_sub_categories[i..i+3]%>
                   <div class="submit-category-button" value="<%= index %>">
-                    <% if cat == @last %>
-                      <%= link_to trip_events_path do %>
-                        <i class='btn home-button'>Go to events</i>
-                      <% end %>
-                    <% else %>
-                      <%= f.submit "Next", class: "btn home-button submit-venue-category" %>
-                    <% end %>
+                    <%= f.submit "Next", class: "btn home-button submit-venue-category" %>
                   </div>
                 <% end %>
               </div>
@@ -38,6 +31,9 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
         <% end %>
       </div>
     </div>
+    <%= link_to trip_events_path do %>
+      <i class='btn home-button'>Go to events</i>
+    <% end %>
   </div>
 </div>
 <script>
@@ -46,7 +42,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   let first_menu = row_of_menus.firstElementChild;
   first_menu= first_menu.querySelector('.menu');
   first_menu.classList.remove('hide-start');
-  
+
   bigButtons.forEach((bigButton) => {
     bigButton.addEventListener('click', function(event) {
       let menu = bigButton.nextElementSibling;
@@ -63,18 +59,18 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
       })
     });
   });
-  
+
   let submits = document.querySelectorAll(".submit-venue-category");
   submits.forEach((submit) => {
   submit.addEventListener('click', function(event){
-  
+
     // console.log(submit.parentNode.parentNode.nextElementSibling.firstElementChild);
     console.log("small button, size doesn't matter");
     // console.log(submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild);
     let next_guy = submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild;
     let next_menu = next_guy.querySelector('.menu');
     next_menu.classList.remove('hide-start');
-  
+
     console.log(submit.parentNode.parentNode.parentNode);
     let current_menu = submit.parentNode.parentNode.parentNode;
     current_menu.classList.add('hide-start');
