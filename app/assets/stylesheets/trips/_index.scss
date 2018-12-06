@@ -1,7 +1,27 @@
+.my-trips-header {
+  background-image: linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1588/v1543497754/igor-starkov-505391-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  height: 50vh;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.my-trips-title {
+  margin-top: 140px;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 1px 0px black;
+}
+
+.my-trips-content-wrapper {
+  background-image: url('https://res.cloudinary.com/druzius/image/upload/v1544086044/grey.png');
+}
+
 .trip-index-content {
-  width: 100%;
+  width: 60%;
   border: 1px solid black;
-  height: 300px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +31,10 @@
 
 
 .trip-card-index-image {
-  background: url('https://res.cloudinary.com/druzius/image/upload/v1543769209/timon-klauser-308449-unsplash.jpg');
-  height: 200px;
+  background: url('https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1639/v1543761369/daria-krav-1132087-unsplash.jpg');
+  background-repeat:no-repeat;
+
+  height: 100%;
   width: 100%;
   background-size: cover;
 }
@@ -22,7 +44,17 @@
   width: 50%;
 }
 
-.trip-card-index-button {
-  width: 40%;
+.trip-card-index-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+ width: 40%;
+}
+
+.fa-whatsapp {
+  color: white;
+
+
 }
 
