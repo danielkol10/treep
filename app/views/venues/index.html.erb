@@ -31,10 +31,16 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
         <% end %>
       </div>
     </div>
-    <%= link_to trip_events_path do %>
-      <i class='btn home-button'>Go to events</i>
-    <% end %>
   </div>
+    <div class="container">
+      <div class="row">
+        <div class="button-to-events">
+          <%= link_to trip_events_path do %>
+            <div class="to-events btn home-button">CHECK OUT EVENTS  >></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
 <script>
   const bigButtons = document.querySelectorAll('.menu-button');

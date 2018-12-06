@@ -1,4 +1,5 @@
 @import "new";
+
 .show-category-title {
   margin: 120px 0 0 0;
   color: #f2f2f2;
@@ -13,6 +14,7 @@
   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .show-category-card-sect {
+  height: 520px;
   margin-top: 25px;
 }
 .show-category-card {
@@ -68,9 +70,25 @@
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: normal;
-  line-height: 1.7rem;
+  line-height: 2.7rem;
 }
 
+.form-group abbr {
+  display: none;
+}
+
+.form-group legend {
+  display: none;
+}
+
+.form-check {
+  margin: 10px;
+}
+
+.collection_check_boxes {
+  margin-left: 15px;
+  font-size: 18px;
+}
 
 .menu-button:hover {
   cursor: pointer;
@@ -78,4 +96,17 @@
 }
 .hide-start {
   display: none;
+}
+
+.button-to-events {
+
+  text-align: center;
+
+}
+
+.to-events {
+  width: 24%;
+
+  text-weight: bolder;
+
 }
