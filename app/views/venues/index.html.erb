@@ -31,10 +31,16 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
         <% end %>
       </div>
     </div>
-    <%= link_to trip_events_path do %>
-      <i class='btn home-button'>Go to events</i>
-    <% end %>
   </div>
+    <div class="container">
+      <div class="row">
+        <div class="button-to-events">
+          <%= link_to trip_events_path do %>
+            <div class="to-events btn home-button">CHECK OUT EVENTS  >></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 </div>
 <script>
   const bigButtons = document.querySelectorAll('.menu-button');
@@ -42,7 +48,7 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   let first_menu = row_of_menus.firstElementChild;
   first_menu= first_menu.querySelector('.menu');
   first_menu.classList.remove('hide-start');
-  
+
   bigButtons.forEach((bigButton) => {
     bigButton.addEventListener('click', function(event) {
       let menu = bigButton.nextElementSibling;
@@ -59,18 +65,18 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
       })
     });
   });
-  
+
   let submits = document.querySelectorAll(".submit-venue-category");
   submits.forEach((submit) => {
   submit.addEventListener('click', function(event){
-  
+
     // console.log(submit.parentNode.parentNode.nextElementSibling.firstElementChild);
     console.log("small button, size doesn't matter");
     // console.log(submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild);
     let next_guy = submit.parentNode.parentNode.parentNode.parentNode.parentNode.nextElementSibling.firstElementChild;
     let next_menu = next_guy.querySelector('.menu');
     next_menu.classList.remove('hide-start');
-  
+
     console.log(submit.parentNode.parentNode.parentNode);
     let current_menu = submit.parentNode.parentNode.parentNode;
     current_menu.classList.add('hide-start');
