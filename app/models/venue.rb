@@ -2,8 +2,8 @@ class Venue < ApplicationRecord
 
   VENUE_CARD_IMAGES = ['https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_2260/v1543755687/pooja-chaudhary-633059-unsplash.jpg',
                        'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1688/v1543755688/alexander-popov-522100-unsplash.jpg',
-                       'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1377/v1543755693/jared-rice-389056-unsplash.jpg',
-                       'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1763/v1543769862/ancient-ancient-civilization-arch-159862.jpg']
+                       'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1763/v1543769862/ancient-ancient-civilization-arch-159862.jpg',
+                     'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1377/v1543755693/jared-rice-389056-unsplash.jpg']
 
   FOURSQUARE_CATEGORY_IMAGES = {
   "4bf58dd8d48988d16c941735" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1683/v1543930000/burger.jpg",
