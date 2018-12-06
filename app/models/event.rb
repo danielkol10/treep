@@ -1,9 +1,10 @@
 class Event < ApplicationRecord
-  EVENT_CARD_IMAGES = [
-    'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933435/music.jpg',
-   'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933434/business.jpg',
-   'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933437/film-media.jpg',
-   'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543935226/science-tech.jpg']
+  EVENT_CARD_IMAGES = {
+   "103" => 'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933435/music.jpg',
+   "101" => 'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933434/business.jpg',
+   "104" => 'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543933437/film-media.jpg',
+   "102" => 'https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543935226/science-tech.jpg'
+  }
 
   EVENTBRITE_SUB_CATEGORY_IMAGES = {
     "3002" => "https://res.cloudinary.com/druzius/image/upload/c_scale,q_auto:eco,w_1568/v1543932418/jazz-blues.jpg",

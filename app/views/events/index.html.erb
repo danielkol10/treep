@@ -10,16 +10,26 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
   <div class="show-category-card-sect">
     <div class="row">
       <% i = 0 %>
-      <% @eventbrite_main_categories.each_with_index do |cat, index| %>
-      <div class="col-xs-12 col-lg-3">
-        <div class="menu-button show-category-card">
+      <% @eventbrite_categories["subcategories"].each do |k, v| %>
+        <% @caption = k%>
+        <% @subcategories = v %>
+
+        <% v.each do |key, value| %>
+          <% @sub_category_name = key%>
+          <% @sub_cat_id = value[1] %>
+          <% @cat_img = value[0] %>
+          <% end %>
+          <div class="col-xs-12 col-lg-3">
+          <div class="menu-button show-category-card">
           <div class="show-category-card-image">
-            <%= cl_image_tag(Event::EVENT_CARD_IMAGES[index]) %>
-            <div class="show-category-card-caption"><%= cat %></div>
+          <%= cl_image_tag(Event::EVENT_CARD_IMAGES[@cat_img]) %>
+            <div class="show-category-card-caption"><%= @caption %></div>
           </div>
           <div class="menue hide-start">
             <%= simple_form_for :sub_category, url: trip_events_path(@trip), method: :post do |f| %>
-            <%= f.input "", label: false, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
+            <%= f.input "", label: false, as: :check_boxes, collection: @subcategories.map { |subc| [cl_image_tag(Event::EVENTBRITE_SUB_CATEGORY_IMAGES[subc[1][1]]), subc[1][1]] }
+             %>
+
             <div class="submit-category-button">
               <%= f.submit "Submit", class: "btn home-button" %>
             </div>
@@ -27,11 +37,21 @@ linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('
           </div>
         </div>
       </div>
-        <% i = i+4 %>
-        <% end %>
+      <% i = i+4 %>
+      <% end %>
     </div>
     <%= link_to trip_path(@trip) do %>
     <i class='btn home-button'>Generate Trip</i>
     <% end %>
   </div>
 </div>
+
+
+<!-- <div class="form-edit">
+  <% @eventbrite_categories.each do |cat| %>
+  <div class="form-check"><input class="form-check-input check_boxes required" type="checkbox" value="<%= cat  %>" name="sub_category[][]" id="sub_category_<%= cat[0] %>">
+    <label class="collection_check_boxes" for="sub_category_<%= cat[0] %>"><%= cat[0] %></label>
+  </div>
+  <% end %>
+</div>
+ -->
