@@ -1,35 +1,36 @@
 <div class="bg-image-wrapper" style="background-image:
 linear-gradient(-225deg, rgba(186,210,213,0.4) 0%, rgba(0,36,61,0.4) 50%), url('https://res.cloudinary.com/druzius/image/upload/v1543828892/emanuel-hahn-200491-unsplash.jpg');">
-<div class="container">
-  <div class="show-category-title">
-    <div class="title-bg">
-      <h2>Explore Events Happening in <%= @trip.city.capitalize %> !</h2>
-      <h4>Choose Your Preferences From Each Category</h4>
-    </div>
-  </div>
-  <div class="show-category-card-sect">
-    <div class="row">
-      <% i = 0 %>
-      <% @eventbrite_main_categories.each do |cat| %>
-      <div class="col-xs-12 col-lg-4">
-        <div class="show-category-card">
-          <div class="show-category-card-image">
-            <div class="show-category-card-caption"><%= cat %></div>
-          </div>
-          <%= simple_form_for :sub_category, url: trip_events_path(@trip), method: :post do |f| %>
-          <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
-          <div class="submit-category-button">
-            <%= f.submit "Submit", class: "btn home-button" %>
-          </div>
-          <% end %>
-        </div>
+  <div class="container">
+    <div class="show-category-title">
+      <div class="title-bg">
+        <h2>Explore Events Happening in <%= @trip.city.capitalize %> !</h2>
+        <h4>Choose Your Preferences From Each Category</h4>
       </div>
-      <% i = i + 4 %>
-      <% end %>
     </div>
+    <div class="show-category-card-sect">
+      <div class="row">
+        <% i = 0 %>
+        <% @eventbrite_main_categories.each_with_index do |cat, index| %>
+          <div class="col-xs-12 col-lg-3">
+            <div class="show-category-card">
+              <div class="show-category-card-image">
+                <%= cl_image_tag(Event::EVENT_CARD_IMAGES[index]) %>
+                <div class="show-category-card-caption"><%= cat %></div>
+              </div>
+              <%= simple_form_for :sub_category, remote: true, url: trip_events_path(@trip), method: :post do |f| %>
+                <%= f.input :choices, as: :check_boxes, collection: @eventbrite_sub_categories.keys[i..i+3]%>
+                <div class="submit-category-button">
+                  <%= f.submit "Next", class: "btn home-button" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <% i = i + 4 %>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to trip_path(@trip) do %>
+      <i class='btn home-button'>Generate Trip</i>
+    <% end %>
   </div>
-  <%= link_to trip_path(@trip) do %>
-  <i class='btn home-button'>Generate Trip</i>
-  <% end %>
-</div>
 </div>

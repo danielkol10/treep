@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     @end_day = @trip.end_day
     @formatted_end = @end_day.strftime('%Y-%m-%dT%H:%M:%S')
 
-      if !params["sub_category"]["choices"].drop(1).nil?
+    if !params["sub_category"]["choices"].drop(1).nil?
       @chosen_categories = params["sub_category"]["choices"].drop(1)
       @chosen_categories.each do |category, values|
         @result = eventbrite_api(@latitude, @longitude, @formatted_start, @formatted_end, @eventbrite_sub_categories[category][0], @eventbrite_sub_categories[category][1])
@@ -29,6 +29,10 @@ class EventsController < ApplicationController
           end
         end
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to trip_venues_path }
+      format.js
     end
   end
 end
